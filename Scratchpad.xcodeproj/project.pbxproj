@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8111CDB31974F4EC000D7293 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDB21974F4EC000D7293 /* Cocoa.framework */; };
+		8111CDBD1974F4EC000D7293 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDBB1974F4EC000D7293 /* InfoPlist.strings */; };
+		8111CDBF1974F4EC000D7293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDBE1974F4EC000D7293 /* main.m */; };
+		8111CDC31974F4EC000D7293 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDC11974F4EC000D7293 /* Credits.rtf */; };
+		8111CDC61974F4EC000D7293 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDC51974F4EC000D7293 /* Document.m */; };
+		8111CDC91974F4ED000D7293 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDC71974F4EC000D7293 /* Document.xib */; };
+		8111CDCC1974F4ED000D7293 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDCA1974F4ED000D7293 /* MainMenu.xib */; };
+		8111CDCF1974F4ED000D7293 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */; };
+		8111CDD11974F4ED000D7293 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDD01974F4ED000D7293 /* Images.xcassets */; };
+		8111CDD81974F4ED000D7293 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDD71974F4ED000D7293 /* XCTest.framework */; };
+		8111CDD91974F4ED000D7293 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDB21974F4EC000D7293 /* Cocoa.framework */; };
+		8111CDE11974F4ED000D7293 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDDF1974F4ED000D7293 /* InfoPlist.strings */; };
+		8111CDE31974F4ED000D7293 /* ScratchpadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDE21974F4ED000D7293 /* ScratchpadTests.m */; };
+		8111CDEB1974F4ED000D7293 /* ScratchpadImporter.mdimporter in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDE81974F4ED000D7293 /* ScratchpadImporter.mdimporter */; };
+		8111CDED1974F4ED000D7293 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDEC1974F4ED000D7293 /* CoreServices.framework */; };
+		8111CDEF1974F4ED000D7293 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDEE1974F4ED000D7293 /* CoreFoundation.framework */; };
+		8111CDF11974F4ED000D7293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDF01974F4ED000D7293 /* CoreData.framework */; };
+		8111CDF31974F4ED000D7293 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8111CDF21974F4ED000D7293 /* Foundation.framework */; };
+		8111CDF91974F4ED000D7293 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDF71974F4ED000D7293 /* InfoPlist.strings */; };
+		8111CDFB1974F4ED000D7293 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFA1974F4ED000D7293 /* main.c */; };
+		8111CDFD1974F4ED000D7293 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFC1974F4ED000D7293 /* GetMetadataForFile.m */; };
+		8111CE001974F4ED000D7293 /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8111CDDA1974F4ED000D7293 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8111CDA71974F4EC000D7293 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8111CDAE1974F4EC000D7293;
+			remoteInfo = Scratchpad;
+		};
+		8111CDE91974F4ED000D7293 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8111CDA71974F4EC000D7293 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8111CDE71974F4ED000D7293;
+			remoteInfo = ScratchpadImporter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8111CDAF1974F4EC000D7293 /* Scratchpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scratchpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8111CDB21974F4EC000D7293 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8111CDB51974F4EC000D7293 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8111CDB61974F4EC000D7293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8111CDB71974F4EC000D7293 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8111CDBA1974F4EC000D7293 /* Scratchpad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scratchpad-Info.plist"; sourceTree = "<group>"; };
+		8111CDBC1974F4EC000D7293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8111CDBE1974F4EC000D7293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8111CDC01974F4EC000D7293 /* Scratchpad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scratchpad-Prefix.pch"; sourceTree = "<group>"; };
+		8111CDC21974F4EC000D7293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		8111CDC41974F4EC000D7293 /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		8111CDC51974F4EC000D7293 /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		8111CDC81974F4EC000D7293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
+		8111CDCB1974F4ED000D7293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8111CDCE1974F4ED000D7293 /* Document.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Document.xcdatamodel; sourceTree = "<group>"; };
+		8111CDD01974F4ED000D7293 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8111CDD61974F4ED000D7293 /* ScratchpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScratchpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8111CDD71974F4ED000D7293 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8111CDDE1974F4ED000D7293 /* ScratchpadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScratchpadTests-Info.plist"; sourceTree = "<group>"; };
+		8111CDE01974F4ED000D7293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8111CDE21974F4ED000D7293 /* ScratchpadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScratchpadTests.m; sourceTree = "<group>"; };
+		8111CDE81974F4ED000D7293 /* ScratchpadImporter.mdimporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScratchpadImporter.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
+		8111CDEC1974F4ED000D7293 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		8111CDEE1974F4ED000D7293 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		8111CDF01974F4ED000D7293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8111CDF21974F4ED000D7293 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8111CDF61974F4ED000D7293 /* ScratchpadImporter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScratchpadImporter-Info.plist"; sourceTree = "<group>"; };
+		8111CDF81974F4ED000D7293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8111CDFA1974F4ED000D7293 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		8111CDFC1974F4ED000D7293 /* GetMetadataForFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
+		8111CDFE1974F4ED000D7293 /* MySpotlightImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySpotlightImporter.h; sourceTree = "<group>"; };
+		8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
+		8111CE011974F4ED000D7293 /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
+		8111CE021974F4ED000D7293 /* ScratchpadImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScratchpadImporter-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8111CDAC1974F4EC000D7293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDB31974F4EC000D7293 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8111CDD31974F4ED000D7293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDD91974F4ED000D7293 /* Cocoa.framework in Frameworks */,
+				8111CDD81974F4ED000D7293 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8111CDE51974F4ED000D7293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDEF1974F4ED000D7293 /* CoreFoundation.framework in Frameworks */,
+				8111CDF11974F4ED000D7293 /* CoreData.framework in Frameworks */,
+				8111CDED1974F4ED000D7293 /* CoreServices.framework in Frameworks */,
+				8111CDF31974F4ED000D7293 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8111CDA61974F4EC000D7293 = {
+			isa = PBXGroup;
+			children = (
+				8111CDB81974F4EC000D7293 /* Scratchpad */,
+				8111CDDC1974F4ED000D7293 /* ScratchpadTests */,
+				8111CDF41974F4ED000D7293 /* ScratchpadImporter */,
+				8111CDB11974F4EC000D7293 /* Frameworks */,
+				8111CDB01974F4EC000D7293 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8111CDB01974F4EC000D7293 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDAF1974F4EC000D7293 /* Scratchpad.app */,
+				8111CDD61974F4ED000D7293 /* ScratchpadTests.xctest */,
+				8111CDE81974F4ED000D7293 /* ScratchpadImporter.mdimporter */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8111CDB11974F4EC000D7293 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDB21974F4EC000D7293 /* Cocoa.framework */,
+				8111CDD71974F4ED000D7293 /* XCTest.framework */,
+				8111CDEC1974F4ED000D7293 /* CoreServices.framework */,
+				8111CDEE1974F4ED000D7293 /* CoreFoundation.framework */,
+				8111CDF01974F4ED000D7293 /* CoreData.framework */,
+				8111CDF21974F4ED000D7293 /* Foundation.framework */,
+				8111CDB41974F4EC000D7293 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8111CDB41974F4EC000D7293 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDB51974F4EC000D7293 /* AppKit.framework */,
+				8111CDB61974F4EC000D7293 /* CoreData.framework */,
+				8111CDB71974F4EC000D7293 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8111CDB81974F4EC000D7293 /* Scratchpad */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDC41974F4EC000D7293 /* Document.h */,
+				8111CDC51974F4EC000D7293 /* Document.m */,
+				8111CDC71974F4EC000D7293 /* Document.xib */,
+				8111CDCA1974F4ED000D7293 /* MainMenu.xib */,
+				8111CDD01974F4ED000D7293 /* Images.xcassets */,
+				8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */,
+				8111CDB91974F4EC000D7293 /* Supporting Files */,
+			);
+			path = Scratchpad;
+			sourceTree = "<group>";
+		};
+		8111CDB91974F4EC000D7293 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDBA1974F4EC000D7293 /* Scratchpad-Info.plist */,
+				8111CDBB1974F4EC000D7293 /* InfoPlist.strings */,
+				8111CDBE1974F4EC000D7293 /* main.m */,
+				8111CDC01974F4EC000D7293 /* Scratchpad-Prefix.pch */,
+				8111CDC11974F4EC000D7293 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8111CDDC1974F4ED000D7293 /* ScratchpadTests */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDE21974F4ED000D7293 /* ScratchpadTests.m */,
+				8111CDDD1974F4ED000D7293 /* Supporting Files */,
+			);
+			path = ScratchpadTests;
+			sourceTree = "<group>";
+		};
+		8111CDDD1974F4ED000D7293 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDDE1974F4ED000D7293 /* ScratchpadTests-Info.plist */,
+				8111CDDF1974F4ED000D7293 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8111CDF41974F4ED000D7293 /* ScratchpadImporter */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDFC1974F4ED000D7293 /* GetMetadataForFile.m */,
+				8111CDFE1974F4ED000D7293 /* MySpotlightImporter.h */,
+				8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */,
+				8111CE011974F4ED000D7293 /* Importer Read Me.txt */,
+				8111CDF51974F4ED000D7293 /* Supporting Files */,
+			);
+			path = ScratchpadImporter;
+			sourceTree = "<group>";
+		};
+		8111CDF51974F4ED000D7293 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8111CDF61974F4ED000D7293 /* ScratchpadImporter-Info.plist */,
+				8111CDF71974F4ED000D7293 /* InfoPlist.strings */,
+				8111CDFA1974F4ED000D7293 /* main.c */,
+				8111CE021974F4ED000D7293 /* ScratchpadImporter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8111CDAE1974F4EC000D7293 /* Scratchpad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8111CE081974F4ED000D7293 /* Build configuration list for PBXNativeTarget "Scratchpad" */;
+			buildPhases = (
+				8111CDAB1974F4EC000D7293 /* Sources */,
+				8111CDAC1974F4EC000D7293 /* Frameworks */,
+				8111CDAD1974F4EC000D7293 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8111CDEA1974F4ED000D7293 /* PBXTargetDependency */,
+			);
+			name = Scratchpad;
+			productName = Scratchpad;
+			productReference = 8111CDAF1974F4EC000D7293 /* Scratchpad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8111CDD51974F4ED000D7293 /* ScratchpadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8111CE0B1974F4ED000D7293 /* Build configuration list for PBXNativeTarget "ScratchpadTests" */;
+			buildPhases = (
+				8111CDD21974F4ED000D7293 /* Sources */,
+				8111CDD31974F4ED000D7293 /* Frameworks */,
+				8111CDD41974F4ED000D7293 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8111CDDB1974F4ED000D7293 /* PBXTargetDependency */,
+			);
+			name = ScratchpadTests;
+			productName = ScratchpadTests;
+			productReference = 8111CDD61974F4ED000D7293 /* ScratchpadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8111CDE71974F4ED000D7293 /* ScratchpadImporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8111CE051974F4ED000D7293 /* Build configuration list for PBXNativeTarget "ScratchpadImporter" */;
+			buildPhases = (
+				8111CDE41974F4ED000D7293 /* Sources */,
+				8111CDE51974F4ED000D7293 /* Frameworks */,
+				8111CDE61974F4ED000D7293 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScratchpadImporter;
+			productName = ScratchpadImporter;
+			productReference = 8111CDE81974F4ED000D7293 /* ScratchpadImporter.mdimporter */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8111CDA71974F4EC000D7293 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					8111CDD51974F4ED000D7293 = {
+						TestTargetID = 8111CDAE1974F4EC000D7293;
+					};
+				};
+			};
+			buildConfigurationList = 8111CDAA1974F4EC000D7293 /* Build configuration list for PBXProject "Scratchpad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8111CDA61974F4EC000D7293;
+			productRefGroup = 8111CDB01974F4EC000D7293 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8111CDAE1974F4EC000D7293 /* Scratchpad */,
+				8111CDD51974F4ED000D7293 /* ScratchpadTests */,
+				8111CDE71974F4ED000D7293 /* ScratchpadImporter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8111CDAD1974F4EC000D7293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDC91974F4ED000D7293 /* Document.xib in Resources */,
+				8111CDEB1974F4ED000D7293 /* ScratchpadImporter.mdimporter in Resources */,
+				8111CDD11974F4ED000D7293 /* Images.xcassets in Resources */,
+				8111CDBD1974F4EC000D7293 /* InfoPlist.strings in Resources */,
+				8111CDC31974F4EC000D7293 /* Credits.rtf in Resources */,
+				8111CDCC1974F4ED000D7293 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8111CDD41974F4ED000D7293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDE11974F4ED000D7293 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8111CDE61974F4ED000D7293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDF91974F4ED000D7293 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8111CDAB1974F4EC000D7293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDCF1974F4ED000D7293 /* Document.xcdatamodeld in Sources */,
+				8111CDC61974F4EC000D7293 /* Document.m in Sources */,
+				8111CDBF1974F4EC000D7293 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8111CDD21974F4ED000D7293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CDE31974F4ED000D7293 /* ScratchpadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8111CDE41974F4ED000D7293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8111CE001974F4ED000D7293 /* MySpotlightImporter.m in Sources */,
+				8111CDFB1974F4ED000D7293 /* main.c in Sources */,
+				8111CDFD1974F4ED000D7293 /* GetMetadataForFile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8111CDDB1974F4ED000D7293 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8111CDAE1974F4EC000D7293 /* Scratchpad */;
+			targetProxy = 8111CDDA1974F4ED000D7293 /* PBXContainerItemProxy */;
+		};
+		8111CDEA1974F4ED000D7293 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8111CDE71974F4ED000D7293 /* ScratchpadImporter */;
+			targetProxy = 8111CDE91974F4ED000D7293 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8111CDBB1974F4EC000D7293 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8111CDBC1974F4EC000D7293 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8111CDC11974F4EC000D7293 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8111CDC21974F4EC000D7293 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		8111CDC71974F4EC000D7293 /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8111CDC81974F4EC000D7293 /* Base */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		8111CDCA1974F4ED000D7293 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8111CDCB1974F4ED000D7293 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		8111CDDF1974F4ED000D7293 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8111CDE01974F4ED000D7293 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8111CDF71974F4ED000D7293 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8111CDF81974F4ED000D7293 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8111CE031974F4ED000D7293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8111CE041974F4ED000D7293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8111CE061974F4ED000D7293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScratchpadImporter/ScratchpadImporter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ScratchpadImporter/ScratchpadImporter-Info.plist";
+				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
+				LIBRARY_STYLE = BUNDLE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mdimporter;
+			};
+			name = Debug;
+		};
+		8111CE071974F4ED000D7293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScratchpadImporter/ScratchpadImporter-Prefix.pch";
+				INFOPLIST_FILE = "ScratchpadImporter/ScratchpadImporter-Info.plist";
+				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
+				LIBRARY_STYLE = BUNDLE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mdimporter;
+			};
+			name = Release;
+		};
+		8111CE091974F4ED000D7293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scratchpad/Scratchpad-Prefix.pch";
+				INFOPLIST_FILE = "Scratchpad/Scratchpad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8111CE0A1974F4ED000D7293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scratchpad/Scratchpad-Prefix.pch";
+				INFOPLIST_FILE = "Scratchpad/Scratchpad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8111CE0C1974F4ED000D7293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scratchpad.app/Contents/MacOS/Scratchpad";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scratchpad/Scratchpad-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ScratchpadTests/ScratchpadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8111CE0D1974F4ED000D7293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scratchpad.app/Contents/MacOS/Scratchpad";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scratchpad/Scratchpad-Prefix.pch";
+				INFOPLIST_FILE = "ScratchpadTests/ScratchpadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8111CDAA1974F4EC000D7293 /* Build configuration list for PBXProject "Scratchpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8111CE031974F4ED000D7293 /* Debug */,
+				8111CE041974F4ED000D7293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8111CE051974F4ED000D7293 /* Build configuration list for PBXNativeTarget "ScratchpadImporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8111CE061974F4ED000D7293 /* Debug */,
+				8111CE071974F4ED000D7293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8111CE081974F4ED000D7293 /* Build configuration list for PBXNativeTarget "Scratchpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8111CE091974F4ED000D7293 /* Debug */,
+				8111CE0A1974F4ED000D7293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8111CE0B1974F4ED000D7293 /* Build configuration list for PBXNativeTarget "ScratchpadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8111CE0C1974F4ED000D7293 /* Debug */,
+				8111CE0D1974F4ED000D7293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8111CDCE1974F4ED000D7293 /* Document.xcdatamodel */,
+			);
+			currentVersion = 8111CDCE1974F4ED000D7293 /* Document.xcdatamodel */;
+			path = Document.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8111CDA71974F4EC000D7293 /* Project object */;
+}
