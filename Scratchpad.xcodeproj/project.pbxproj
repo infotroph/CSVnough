@@ -11,8 +11,8 @@
 		8111CDBD1974F4EC000D7293 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDBB1974F4EC000D7293 /* InfoPlist.strings */; };
 		8111CDBF1974F4EC000D7293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDBE1974F4EC000D7293 /* main.m */; };
 		8111CDC31974F4EC000D7293 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDC11974F4EC000D7293 /* Credits.rtf */; };
-		8111CDC61974F4EC000D7293 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDC51974F4EC000D7293 /* Document.m */; };
-		8111CDC91974F4ED000D7293 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDC71974F4EC000D7293 /* Document.xib */; };
+		8111CDC61974F4EC000D7293 /* SPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDC51974F4EC000D7293 /* SPDocument.m */; };
+		8111CDC91974F4ED000D7293 /* SPDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDC71974F4EC000D7293 /* SPDocument.xib */; };
 		8111CDCC1974F4ED000D7293 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDCA1974F4ED000D7293 /* MainMenu.xib */; };
 		8111CDCF1974F4ED000D7293 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */; };
 		8111CDD11974F4ED000D7293 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8111CDD01974F4ED000D7293 /* Images.xcassets */; };
@@ -59,9 +59,9 @@
 		8111CDBE1974F4EC000D7293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8111CDC01974F4EC000D7293 /* Scratchpad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scratchpad-Prefix.pch"; sourceTree = "<group>"; };
 		8111CDC21974F4EC000D7293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8111CDC41974F4EC000D7293 /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		8111CDC51974F4EC000D7293 /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
-		8111CDC81974F4EC000D7293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
+		8111CDC41974F4EC000D7293 /* SPDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPDocument.h; sourceTree = "<group>"; };
+		8111CDC51974F4EC000D7293 /* SPDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPDocument.m; sourceTree = "<group>"; };
+		8111CDC81974F4EC000D7293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SPDocument.xib; sourceTree = "<group>"; };
 		8111CDCB1974F4ED000D7293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8111CDCE1974F4ED000D7293 /* Document.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Document.xcdatamodel; sourceTree = "<group>"; };
 		8111CDD01974F4ED000D7293 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -165,9 +165,9 @@
 		8111CDB81974F4EC000D7293 /* Scratchpad */ = {
 			isa = PBXGroup;
 			children = (
-				8111CDC41974F4EC000D7293 /* Document.h */,
-				8111CDC51974F4EC000D7293 /* Document.m */,
-				8111CDC71974F4EC000D7293 /* Document.xib */,
+				8111CDC41974F4EC000D7293 /* SPDocument.h */,
+				8111CDC51974F4EC000D7293 /* SPDocument.m */,
+				8111CDC71974F4EC000D7293 /* SPDocument.xib */,
 				8111CDCA1974F4ED000D7293 /* MainMenu.xib */,
 				8111CDD01974F4ED000D7293 /* Images.xcassets */,
 				8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */,
@@ -324,7 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8111CDC91974F4ED000D7293 /* Document.xib in Resources */,
+				8111CDC91974F4ED000D7293 /* SPDocument.xib in Resources */,
 				8111CDEB1974F4ED000D7293 /* ScratchpadImporter.mdimporter in Resources */,
 				8111CDD11974F4ED000D7293 /* Images.xcassets in Resources */,
 				8111CDBD1974F4EC000D7293 /* InfoPlist.strings in Resources */,
@@ -357,7 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8111CDCF1974F4ED000D7293 /* Document.xcdatamodeld in Sources */,
-				8111CDC61974F4EC000D7293 /* Document.m in Sources */,
+				8111CDC61974F4EC000D7293 /* SPDocument.m in Sources */,
 				8111CDBF1974F4EC000D7293 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,12 +412,12 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		8111CDC71974F4EC000D7293 /* Document.xib */ = {
+		8111CDC71974F4EC000D7293 /* SPDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8111CDC81974F4EC000D7293 /* Base */,
 			);
-			name = Document.xib;
+			name = SPDocument.xib;
 			sourceTree = "<group>";
 		};
 		8111CDCA1974F4ED000D7293 /* MainMenu.xib */ = {
@@ -638,6 +638,7 @@
 				8111CE071974F4ED000D7293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8111CE081974F4ED000D7293 /* Build configuration list for PBXNativeTarget "Scratchpad" */ = {
 			isa = XCConfigurationList;
@@ -646,6 +647,7 @@
 				8111CE0A1974F4ED000D7293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8111CE0B1974F4ED000D7293 /* Build configuration list for PBXNativeTarget "ScratchpadTests" */ = {
 			isa = XCConfigurationList;
@@ -654,6 +656,7 @@
 				8111CE0D1974F4ED000D7293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
