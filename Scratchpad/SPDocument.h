@@ -10,11 +10,7 @@
 
 @interface SPDocument : NSDocument
 
--(NSString *)csvString;
--(void)setcsvString:(NSString *)data;
-
-@property (unsafe_unretained) IBOutlet NSTableCellView *csvTextTableCell;
-@property (weak) IBOutlet NSTextField *csvTextField;
-
+@property NSString *csvString;
+@property (assign) IBOutlet NSTextView *csvTextView;
 
 @end

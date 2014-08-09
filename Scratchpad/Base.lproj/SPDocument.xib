@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SPDocument">
             <connections>
-                <outlet property="csvTextField" destination="9AM-wW-YhH" id="v2G-BZ-uO0"/>
+                <outlet property="csvTextView" destination="oRN-8i-hlU" id="8X5-G2-bfe"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
             </connections>
         </customObject>
@@ -53,26 +53,54 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9AM-wW-YhH">
-                        <rect key="frame" x="381" y="120" width="240" height="134"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="xPF-aR-pFP">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDE-FG-oEx">
+                        <rect key="frame" x="-1" y="20" width="682" height="403"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="IVg-gf-wK8">
+                            <rect key="frame" x="1" y="1" width="680" height="401"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="oRN-8i-hlU">
+                                    <rect key="frame" x="0.0" y="0.0" width="680" height="401"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="680" height="401"/>
+                                    <size key="maxSize" width="682" height="10000000"/>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="680" height="401"/>
+                                    <size key="maxSize" width="682" height="10000000"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-2" id="AgS-hW-Dxw"/>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="PTb-0l-vvf">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="07W-wc-T9B">
+                            <rect key="frame" x="665" y="1" width="16" height="401"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sVJ-3v-Qwp" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="-1" id="1u7-6E-f5T"/>
-                    <constraint firstAttribute="bottom" secondItem="sVJ-3v-Qwp" secondAttribute="bottom" constant="-1" id="Y0d-66-aEb"/>
-                    <constraint firstItem="sVJ-3v-Qwp" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="bgV-qs-Pp3"/>
-                    <constraint firstAttribute="trailing" secondItem="sVJ-3v-Qwp" secondAttribute="trailing" constant="-1" id="dbA-fz-HVP"/>
+                    <constraint firstItem="sVJ-3v-Qwp" firstAttribute="centerY" secondItem="fDE-FG-oEx" secondAttribute="centerY" id="FJP-NQ-y9v"/>
+                    <constraint firstItem="fDE-FG-oEx" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="Mt6-H9-SXG"/>
+                    <constraint firstAttribute="bottom" secondItem="sVJ-3v-Qwp" secondAttribute="bottom" constant="-1" id="NiU-SS-NC3"/>
+                    <constraint firstAttribute="trailing" secondItem="sVJ-3v-Qwp" secondAttribute="trailing" constant="-1" id="UgK-bw-Dw9"/>
+                    <constraint firstItem="sVJ-3v-Qwp" firstAttribute="leading" secondItem="fDE-FG-oEx" secondAttribute="leading" id="gEJ-8a-st0"/>
+                    <constraint firstItem="fDE-FG-oEx" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="20" symbolic="YES" id="gYn-1n-uVb"/>
+                    <constraint firstItem="sVJ-3v-Qwp" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="-1" id="jba-tg-y9q"/>
+                    <constraint firstAttribute="trailing" secondItem="fDE-FG-oEx" secondAttribute="trailing" constant="-16" id="jgd-ea-jUm"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="Xd5-W6-jPI"/>
     </objects>
 </document>

@@ -29,6 +29,7 @@
 		8111CDFB1974F4ED000D7293 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFA1974F4ED000D7293 /* main.c */; };
 		8111CDFD1974F4ED000D7293 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFC1974F4ED000D7293 /* GetMetadataForFile.m */; };
 		8111CE001974F4ED000D7293 /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */; };
+		81FD56191995B77A005D19D8 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD56181995B77A005D19D8 /* CHCSVParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		8111CE011974F4ED000D7293 /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		8111CE021974F4ED000D7293 /* ScratchpadImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScratchpadImporter-Prefix.pch"; sourceTree = "<group>"; };
+		81FD56171995B77A005D19D8 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		81FD56181995B77A005D19D8 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 			children = (
 				8111CDC41974F4EC000D7293 /* SPDocument.h */,
 				8111CDC51974F4EC000D7293 /* SPDocument.m */,
+				81FD56171995B77A005D19D8 /* CHCSVParser.h */,
+				81FD56181995B77A005D19D8 /* CHCSVParser.m */,
 				8111CDC71974F4EC000D7293 /* SPDocument.xib */,
 				8111CDCA1974F4ED000D7293 /* MainMenu.xib */,
 				8111CDD01974F4ED000D7293 /* Images.xcassets */,
@@ -356,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FD56191995B77A005D19D8 /* CHCSVParser.m in Sources */,
 				8111CDCF1974F4ED000D7293 /* Document.xcdatamodeld in Sources */,
 				8111CDC61974F4EC000D7293 /* SPDocument.m in Sources */,
 				8111CDBF1974F4EC000D7293 /* main.m in Sources */,

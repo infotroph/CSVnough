@@ -1,5 +1,5 @@
 //
-//  Document.m
+//  SPDocument.m
 //  Scratchpad
 //
 //  Created by Chris Black on 2014-07-15.
@@ -29,7 +29,12 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    if(![self csvString]){
+        [self setCsvString:@"LOLDATA"];
+    }
+    [[self csvTextView] setString:[self csvString]];
+    NSLog(@"%@, csvString: " @"%@", NSStringFromSelector(_cmd), [self csvString]);
+    NSLog(@"%@, csvTextView: " @"%@", NSStringFromSelector(_cmd), [[self csvTextView] string] );
     
 }
 
@@ -41,14 +46,6 @@
 + (BOOL)autosavesDrafts
 {
     return NO;
-}
-
-- (void)setcsvString:(NSString *)data {
-    [self.csvTextField setStringValue:data];
-}
-
-- (NSString *)csvString {
-    return [self.csvTextField stringValue];
 }
 
 
@@ -64,22 +61,29 @@
     }
     if (fileContents) {
         readSuccess = YES;
-        [self setcsvString:fileContents];
+        [self setCsvString:fileContents];
+        [[self csvTextView] setString:[self csvString]];
     }
-    NSLog(@"%@", fileContents);
-    NSLog(@"%@", self.csvString);
+    NSLog(@"end of readFromData, csvString: " @"%@", [self csvString]);
+    NSLog(@"end of readFromData, csvTextView: " @"%@", [[self csvTextView] string] );
     return readSuccess;
 }
 
 - (NSData *)dataOfType:(NSString *)CSV error:(NSError **)outError {
     NSData *data;
-    data = [self.csvString dataUsingEncoding:NSASCIIStringEncoding];
+    [self setCsvString:[self.csvTextView string]];
+    data = [[self csvString] dataUsingEncoding:NSASCIIStringEncoding];
     if (!data) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain
                                         code:NSFileWriteUnknownError userInfo:nil];
     }
+    NSLog(@"csvString: " @"%@", [self csvString]);
+    NSLog(@"csvTextView.string: "@"%@", [[self csvTextView] string]);
     return data;
 }
-
+- (void) textDidChange: (NSNotification *) notification {
+    NSLog(@"textDidChange: %@ --> %@", [self csvString], [[self.csvTextView textStorage] string] );
+    self.csvString = [[self.csvTextView textStorage] string];
+}
 
 @end
