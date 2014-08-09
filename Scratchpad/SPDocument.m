@@ -8,43 +8,10 @@
 
 #import "SPDocument.h"
 #import "CHCSVParser.h"
+#import "ParserDelegate.h"
 
 // TODO: be flexible with this, parser already knows how
 #define DELIMITER ','
-
-@interface ParserDelegate : NSObject <CHCSVParserDelegate>
-
-@property (readonly) NSArray *lines;
-
-@end
-
-@implementation ParserDelegate {
-    NSMutableArray *_lines;
-    NSMutableArray *_currentLine;
-}
-- (void)parserDidBeginDocument:(CHCSVParser *)parser {
-    _lines = [[NSMutableArray alloc] init];
-}
-- (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
-    _currentLine = [[NSMutableArray alloc] init];
-}
-- (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
-    NSLog(@"%@", field);
-    [_currentLine addObject:field];
-}
-- (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber {
-    [_lines addObject:_currentLine];
-    _currentLine = nil;
-}
-- (void)parserDidEndDocument:(CHCSVParser *)parser {
-    //	NSLog(@"parser ended: %@", csvFile);
-}
-- (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error {
-	NSLog(@"ERROR: %@", error);
-    _lines = nil;
-}
-@end
-
 
 @implementation SPDocument
 
