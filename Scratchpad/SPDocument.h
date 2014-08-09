@@ -12,5 +12,6 @@
 
 @property NSString *csvString;
 @property (assign) IBOutlet NSTextView *csvTextView;
+@property NSArray *parsedCSVArray;
 
 @end

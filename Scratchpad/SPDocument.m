@@ -7,6 +7,44 @@
 //
 
 #import "SPDocument.h"
+#import "CHCSVParser.h"
+
+// TODO: be flexible with this, parser already knows how
+#define DELIMITER ','
+
+@interface ParserDelegate : NSObject <CHCSVParserDelegate>
+
+@property (readonly) NSArray *lines;
+
+@end
+
+@implementation ParserDelegate {
+    NSMutableArray *_lines;
+    NSMutableArray *_currentLine;
+}
+- (void)parserDidBeginDocument:(CHCSVParser *)parser {
+    _lines = [[NSMutableArray alloc] init];
+}
+- (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
+    _currentLine = [[NSMutableArray alloc] init];
+}
+- (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
+    NSLog(@"%@", field);
+    [_currentLine addObject:field];
+}
+- (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber {
+    [_lines addObject:_currentLine];
+    _currentLine = nil;
+}
+- (void)parserDidEndDocument:(CHCSVParser *)parser {
+    //	NSLog(@"parser ended: %@", csvFile);
+}
+- (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error {
+	NSLog(@"ERROR: %@", error);
+    _lines = nil;
+}
+@end
+
 
 @implementation SPDocument
 
@@ -29,10 +67,10 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    if(![self csvString]){
-        [self setCsvString:@"LOLDATA"];
+    if([self parsedCSVArray]){
+        [[self csvTextView] setString:[[self parsedCSVArray] componentsJoinedByString:@"HOOOOOBOY"]];
     }
-    [[self csvTextView] setString:[self csvString]];
+    
     NSLog(@"%@, csvString: " @"%@", NSStringFromSelector(_cmd), [self csvString]);
     NSLog(@"%@, csvTextView: " @"%@", NSStringFromSelector(_cmd), [[self csvTextView] string] );
     
@@ -49,23 +87,22 @@
 }
 
 
-/* This method lifted from the NSDocument subclassing tutorial. Rewrite with better error handling. */
-- (BOOL)readFromData:(NSData *)csvdata ofType:(NSString *)CSV
-               error:(NSError **)outError {
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)CSV error:(NSError *__autoreleasing *)outError{
     BOOL readSuccess = NO;
-    NSString *fileContents = [[NSString alloc]
-                              initWithData:csvdata encoding:NSASCIIStringEncoding];
-    if (!fileContents) {
+    NSInputStream *stream = [NSInputStream inputStreamWithData:data];
+    CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:nil delimiter:DELIMITER];
+    ParserDelegate * pd = [[ParserDelegate alloc] init];
+    [p setDelegate:pd];
+    [p parse];
+    [self setParsedCSVArray:[pd lines]];
+    
+    if (![self parsedCSVArray]) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain
                                         code:NSFileReadUnknownError userInfo:nil];
-    }
-    if (fileContents) {
+    } else {
         readSuccess = YES;
-        [self setCsvString:fileContents];
-        [[self csvTextView] setString:[self csvString]];
+        NSLog(@"%@ %@", NSStringFromSelector(_cmd), [self parsedCSVArray]);
     }
-    NSLog(@"end of readFromData, csvString: " @"%@", [self csvString]);
-    NSLog(@"end of readFromData, csvTextView: " @"%@", [[self csvTextView] string] );
     return readSuccess;
 }
 
