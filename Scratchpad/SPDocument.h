@@ -8,10 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SPDocument : NSDocument
+@interface SPDocument : NSDocument <NSTableViewDelegate, NSTableViewDataSource> 
 
 @property NSString *csvString;
 @property (assign) IBOutlet NSTextView *csvTextView;
 @property NSArray *parsedCSVArray;
+@property (weak) IBOutlet NSTableView *table;
+
+- (NSInteger)numberOfColumnsInTableView:(NSTableView *) tableView;
 
 @end
+

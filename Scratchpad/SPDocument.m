@@ -35,11 +35,15 @@
 {
     [super windowControllerDidLoadNib:aController];
     if([self parsedCSVArray]){
-        [[self csvTextView] setString:[[self parsedCSVArray] componentsJoinedByString:@"HOOOOOBOY"]];
+        [[self csvTextView] setString:[[self parsedCSVArray] componentsJoinedByString:@"\n"]];
     }
+    [self.table setGridStyleMask:NSTableViewGridNone];
+    [self.table setIntercellSpacing:NSMakeSize(0,0)];
+    [self.table setRowSizeStyle:NSTableViewRowSizeStyleLarge];
+
     
-    NSLog(@"%@, csvString: " @"%@", NSStringFromSelector(_cmd), [self csvString]);
-    NSLog(@"%@, csvTextView: " @"%@", NSStringFromSelector(_cmd), [[self csvTextView] string] );
+//    NSLog(@"%@, csvString: " @"%@", NSStringFromSelector(_cmd), [self csvString]);
+//    NSLog(@"%@, csvTextView: " @"%@", NSStringFromSelector(_cmd), [[self csvTextView] string] );
     
 }
 
@@ -68,7 +72,7 @@
                                         code:NSFileReadUnknownError userInfo:nil];
     } else {
         readSuccess = YES;
-        NSLog(@"%@ %@", NSStringFromSelector(_cmd), [self parsedCSVArray]);
+//        NSLog(@"%@ %@", NSStringFromSelector(_cmd), [self parsedCSVArray]);
     }
     return readSuccess;
 }
@@ -79,15 +83,75 @@
     data = [[self csvString] dataUsingEncoding:NSASCIIStringEncoding];
     if (!data) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain
-                                        code:NSFileWriteUnknownError userInfo:nil];
+                                        code:NSFileWriteUnknownError
+                                    userInfo:nil];
     }
-    NSLog(@"csvString: " @"%@", [self csvString]);
-    NSLog(@"csvTextView.string: "@"%@", [[self csvTextView] string]);
     return data;
 }
-- (void) textDidChange: (NSNotification *) notification {
-    NSLog(@"textDidChange: %@ --> %@", [self csvString], [[self.csvTextView textStorage] string] );
-    self.csvString = [[self.csvTextView textStorage] string];
+
+//- (void) textDidChange: (NSNotification *) notification {
+//    NSLog(@"textDidChange: %@ --> %@", [self csvString], [[self.csvTextView textStorage] string] );
+//    self.csvString = [[self.csvTextView textStorage] string];
+//}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+//    NSLog(@"numrowsintableview:: %lu", (unsigned long)self.parsedCSVArray.count);
+    return self.parsedCSVArray.count;
 }
+
+- (NSInteger)numberOfColumnsInTableView:(NSTableView *)tableView {
+    NSInteger ntablecol = 0;
+    for(NSArray *tablerow in self.parsedCSVArray){
+        if ([tablerow count] > ntablecol){
+            ntablecol = [tablerow count];
+        }
+    }
+//    NSLog(@"numcolintableview:: %lu", ntablecol);
+    return (NSInteger) ntablecol;
+    
+}
+
+- (NSView *)tableView:(NSTableView *)tv
+   viewForTableColumn:(NSTableColumn *)tc
+                  row:(NSInteger)row {
+    
+//    NSLog(@"nCols: %ld", (long)[self numberOfColumnsInTableView:tv]);
+//    NSLog(@"tc %@", tc);
+//    NSLog(@"tv %@", tv);
+//    NSLog(@"row %ld", row);
+//    NSLog(@"column ID: %@", [tc identifier]);
+    
+    NSArray *rowarr = [[self parsedCSVArray] objectAtIndex:row];
+    NSInteger colidx = [tv columnWithIdentifier:[tc identifier]];
+    if(colidx == -1){ // no column matching identifier was found
+        NSLog(@"Couldn't find a column matching that identifier. Aborting!");
+        return nil;
+    }
+    
+    
+    if (rowarr.count > [tv numberOfColumns]){
+//        NSLog(@"Add col");
+        NSTableColumn *newtc = [[NSTableColumn alloc]
+                                initWithIdentifier:[NSString stringWithFormat:@"%ld",
+                                                    (long)[tv numberOfColumns]+1]];
+        [tv addTableColumn:newtc];
+    }
+    
+    NSTextField *cell = [tv makeViewWithIdentifier:@"tablecellview" owner:self];
+    
+    if (cell == nil) {
+//        NSLog(@"cell is nil");
+        cell = [[NSTextField alloc] initWithFrame:NSRectFromString(@"100,100")];
+        cell.identifier = @"tablecellview";
+    }
+    
+    if ((colidx) < [rowarr count]){
+//        NSLog(@"row %ld col %ld equals %@", (long)row, (long)colidx, rowarr[colidx]);
+        cell.stringValue = rowarr[colidx];
+    }
+    [cell setNeedsDisplay:YES];
+    return cell;    
+}
+
 
 @end
