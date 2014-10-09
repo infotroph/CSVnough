@@ -58,7 +58,9 @@
 }
 
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)CSV error:(NSError *__autoreleasing *)outError{
+- (BOOL)readFromData:(NSData *)data
+              ofType:(NSString *)CSV
+               error:(NSError *__autoreleasing *)outError{
     BOOL readSuccess = NO;
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
     CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:nil delimiter:DELIMITER];
@@ -77,7 +79,8 @@
     return readSuccess;
 }
 
-- (NSData *)dataOfType:(NSString *)CSV error:(NSError **)outError {
+- (NSData *)dataOfType:(NSString *)CSV
+                 error:(NSError **)outError {
     NSData *data;
     [self setCsvString:[self.csvTextView string]];
     data = [[self csvString] dataUsingEncoding:NSASCIIStringEncoding];

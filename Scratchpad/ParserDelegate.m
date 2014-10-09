@@ -38,18 +38,22 @@
 - (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
     _currentLine = [[NSMutableArray alloc] init];
 }
-- (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
+- (void)parser:(CHCSVParser *)parser
+  didReadField:(NSString *)field
+       atIndex:(NSInteger)fieldIndex {
     NSLog(@"%@", field);
     [_currentLine addObject:field];
 }
-- (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber {
+- (void)parser:(CHCSVParser *)parser
+    didEndLine:(NSUInteger)recordNumber {
     [_lines addObject:_currentLine];
     _currentLine = nil;
 }
 - (void)parserDidEndDocument:(CHCSVParser *)parser {
     //	NSLog(@"parser ended: %@", csvFile);
 }
-- (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error {
+- (void)parser:(CHCSVParser *)parser
+didFailWithError:(NSError *)error {
 	NSLog(@"ERROR: %@", error);
     _lines = nil;
 }
