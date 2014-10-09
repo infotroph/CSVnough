@@ -37,6 +37,8 @@
     if([self parsedCSVArray]){
         [[self csvTextView] setString:[[self parsedCSVArray] componentsJoinedByString:@"\n"]];
     }
+    [self.table setTarget:self];
+    [self.table setDelegate:self];
     [self.table setGridStyleMask:NSTableViewGridNone];
     [self.table setIntercellSpacing:NSMakeSize(0,0)];
     [self.table setRowSizeStyle:NSTableViewRowSizeStyleLarge];
@@ -81,21 +83,34 @@
 
 - (NSData *)dataOfType:(NSString *)CSV
                  error:(NSError **)outError {
-    NSData *data;
-    [self setCsvString:[self.csvTextView string]];
-    data = [[self csvString] dataUsingEncoding:NSASCIIStringEncoding];
+    NSOutputStream *dstr = [[NSOutputStream alloc] initToMemory];
+    CHCSVWriter *w = [[CHCSVWriter alloc] initWithOutputStream:dstr
+                                                      encoding:NSUTF8StringEncoding
+                                                     delimiter:DELIMITER];
+    for(NSArray *row in self.parsedCSVArray){
+        NSLog(@"%@", row);
+        [w writeLineOfFields:row];
+    }
+    NSData *data = [dstr propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+     NSLog(@"%@", [data description]);
     if (!data) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain
                                         code:NSFileWriteUnknownError
                                     userInfo:nil];
     }
+    [w closeStream];
     return data;
 }
 
-//- (void) textDidChange: (NSNotification *) notification {
-//    NSLog(@"textDidChange: %@ --> %@", [self csvString], [[self.csvTextView textStorage] string] );
-//    self.csvString = [[self.csvTextView textStorage] string];
-//}
+- (void) controlTextDidEndEditing: (NSNotification *) notification {
+    NSString *nodesc = [[notification object] description];
+    NSLog(@"Text editing ended in %@", nodesc);
+    int rowi = (int)[_table rowForView:[notification object]];
+    int coli = (int)[_table columnForView:[notification object]];
+    NSLog(@"controlTextDidEndEditing: stringValue == %@, row == %d, col==%d", [notification.object stringValue], rowi, coli);
+     NSLog(@"previously: %@", [[_parsedCSVArray objectAtIndex:rowi] objectAtIndex:coli]);
+    [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
+}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return self.parsedCSVArray.count;
@@ -135,6 +150,7 @@
         NSTableColumn *newtc = [[NSTableColumn alloc]
                                 initWithIdentifier:[NSString stringWithFormat:@"%ld",
                                                     (long)[tv numberOfColumns]+1]];
+        [newtc setEditable:YES];
         [tv addTableColumn:newtc];
     }
     
@@ -144,6 +160,7 @@
 //        NSLog(@"cell is nil");
         cell = [[NSTextField alloc] initWithFrame:NSRectFromString(@"100,100")];
         cell.identifier = @"tablecellview";
+        cell.delegate = (id)self; //(id) to suppress protocol mismatch messages. Hacky!
     }
     
     if ((colidx) < [rowarr count]){

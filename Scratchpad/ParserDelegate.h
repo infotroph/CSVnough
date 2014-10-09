@@ -11,7 +11,7 @@
 
 @interface ParserDelegate : NSObject <CHCSVParserDelegate>
 
-@property (readonly) NSArray *lines;
+@property (readonly) NSMutableArray *lines;
 
 @end
 
