@@ -98,7 +98,6 @@
 //}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-//    NSLog(@"numrowsintableview:: %lu", (unsigned long)self.parsedCSVArray.count);
     return self.parsedCSVArray.count;
 }
 
@@ -109,7 +108,6 @@
             ntablecol = [tablerow count];
         }
     }
-//    NSLog(@"numcolintableview:: %lu", ntablecol);
     return (NSInteger) ntablecol;
     
 }
