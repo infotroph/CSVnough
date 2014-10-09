@@ -35,7 +35,8 @@
 - (void)parserDidBeginDocument:(CHCSVParser *)parser {
     _lines = [[NSMutableArray alloc] init];
 }
-- (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
+- (void)parser:(CHCSVParser *)parser
+  didBeginLine:(NSUInteger)recordNumber {
     _currentLine = [[NSMutableArray alloc] init];
 }
 - (void)parser:(CHCSVParser *)parser

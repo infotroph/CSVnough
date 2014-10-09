@@ -59,7 +59,6 @@
     return NO;
 }
 
-
 - (BOOL)readFromData:(NSData *)data
               ofType:(NSString *)CSV
                error:(NSError *__autoreleasing *)outError{
@@ -124,18 +123,11 @@
         }
     }
     return (NSInteger) ntablecol;
-    
 }
 
 - (NSView *)tableView:(NSTableView *)tv
    viewForTableColumn:(NSTableColumn *)tc
                   row:(NSInteger)row {
-    
-//    NSLog(@"nCols: %ld", (long)[self numberOfColumnsInTableView:tv]);
-//    NSLog(@"tc %@", tc);
-//    NSLog(@"tv %@", tv);
-//    NSLog(@"row %ld", row);
-//    NSLog(@"column ID: %@", [tc identifier]);
     
     NSArray *rowarr = [[self parsedCSVArray] objectAtIndex:row];
     NSInteger colidx = [tv columnWithIdentifier:[tc identifier]];
@@ -143,7 +135,6 @@
         NSLog(@"Couldn't find a column matching that identifier. Aborting!");
         return nil;
     }
-    
     
     if (rowarr.count > [tv numberOfColumns]){
 //        NSLog(@"Add col");
