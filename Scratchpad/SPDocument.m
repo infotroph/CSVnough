@@ -26,8 +26,6 @@
 
 - (NSString *)windowNibName
 {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
     return @"SPDocument";
 }
 
@@ -63,6 +61,7 @@
               ofType:(NSString *)CSV
                error:(NSError *__autoreleasing *)outError{
     BOOL readSuccess = NO;
+    //NSLog(@"Trying to parse %lu bytes", [data length]);
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
     CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:nil delimiter:DELIMITER];
     ParserDelegate * pd = [[ParserDelegate alloc] init];
@@ -83,31 +82,25 @@
 - (NSData *)dataOfType:(NSString *)CSV
                  error:(NSError **)outError {
     NSOutputStream *dstr = [[NSOutputStream alloc] initToMemory];
-    CHCSVWriter *w = [[CHCSVWriter alloc] initWithOutputStream:dstr
-                                                      encoding:NSUTF8StringEncoding
-                                                     delimiter:DELIMITER];
+    CHCSVWriter *w = [[CHCSVWriter alloc] initWithOutputStream:dstr encoding:NSUTF8StringEncoding delimiter:DELIMITER];
     for(NSArray *row in self.parsedCSVArray){
-        NSLog(@"%@", row);
+       // NSLog(@"%@", row);
         [w writeLineOfFields:row];
     }
     NSData *data = [dstr propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
-     NSLog(@"%@", [data description]);
+    // NSLog(@"%@", [data description]);
     if (!data) {
-        *outError = [NSError errorWithDomain:NSCocoaErrorDomain
-                                        code:NSFileWriteUnknownError
-                                    userInfo:nil];
+        *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:nil];
     }
     [w closeStream];
     return data;
 }
 
 - (void) controlTextDidEndEditing: (NSNotification *) notification {
-    NSString *nodesc = [[notification object] description];
-    NSLog(@"Text editing ended in %@", nodesc);
     int rowi = (int)[_table rowForView:[notification object]];
     int coli = (int)[_table columnForView:[notification object]];
-    NSLog(@"controlTextDidEndEditing: stringValue == %@, row == %d, col==%d", [notification.object stringValue], rowi, coli);
-     NSLog(@"previously: %@", [[_parsedCSVArray objectAtIndex:rowi] objectAtIndex:coli]);
+    // NSLog(@"controlTextDidEndEditing: stringValue == %@, row == %d, col==%d", [notification.object stringValue], rowi, coli);
+    // NSLog(@"previously: %@", [[_parsedCSVArray objectAtIndex:rowi] objectAtIndex:coli]);
     [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
 }
 
@@ -125,13 +118,12 @@
     return (NSInteger) ntablecol;
 }
 
-- (NSView *)tableView:(NSTableView *)tv
-   viewForTableColumn:(NSTableColumn *)tc
-                  row:(NSInteger)row {
+- (NSView *)tableView:(NSTableView *)tv viewForTableColumn:(NSTableColumn *)tc row:(NSInteger)row {
     
     NSArray *rowarr = [[self parsedCSVArray] objectAtIndex:row];
     NSInteger colidx = [tv columnWithIdentifier:[tc identifier]];
-    if(colidx == -1){ // no column matching identifier was found
+    
+    if(colidx == -1){ // have never seen this happen -- safe to remove check?
         NSLog(@"Couldn't find a column matching that identifier. Aborting!");
         return nil;
     }
@@ -148,13 +140,12 @@
     NSTextField *cell = [tv makeViewWithIdentifier:@"tablecellview" owner:self];
     
     if (cell == nil) {
-//        NSLog(@"cell is nil");
         cell = [[NSTextField alloc] initWithFrame:NSRectFromString(@"100,100")];
         cell.identifier = @"tablecellview";
         cell.delegate = (id)self; //(id) to suppress protocol mismatch messages. Hacky!
     }
     
-    if ((colidx) < [rowarr count]){
+    if ((colidx) < [rowarr count]){ // is this check necessary?
 //        NSLog(@"row %ld col %ld equals %@", (long)row, (long)colidx, rowarr[colidx]);
         cell.stringValue = rowarr[colidx];
     }

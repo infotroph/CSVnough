@@ -42,7 +42,7 @@
 - (void)parser:(CHCSVParser *)parser
   didReadField:(NSString *)field
        atIndex:(NSInteger)fieldIndex {
-    NSLog(@"%@", field);
+    //NSLog(@"'%@' at %lu", field, fieldIndex);
     [_currentLine addObject:field];
 }
 - (void)parser:(CHCSVParser *)parser
