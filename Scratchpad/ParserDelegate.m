@@ -51,7 +51,9 @@
     _currentLine = nil;
 }
 - (void)parserDidEndDocument:(CHCSVParser *)parser {
-    //	NSLog(@"parser ended: %@", csvFile);
+    //    NSLog(@"parser ended. Read %lu bytes: %@",
+    //      (unsigned long)[parser totalBytesRead],
+    //      [[parser delegate] performSelector:@selector(lines)]);
 }
 - (void)parser:(CHCSVParser *)parser
 didFailWithError:(NSError *)error {
