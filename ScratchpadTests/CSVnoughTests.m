@@ -1,6 +1,6 @@
 //
-//  ScratchpadTests.m
-//  ScratchpadTests
+//  CSVnoughTests.m
+//  CSVnoughTests
 //
 //  Created by Chris Black on 2014-07-15.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface ScratchpadTests : XCTestCase
+@interface CSVnoughTests : XCTestCase
 
 @end
 
-@implementation ScratchpadTests
+@implementation CSVnoughTests
 
 - (void)setUp
 {
@@ -29,6 +29,10 @@
 - (void)testExample
 {
     XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)missingCells{
+    XCTFail(@"Not all cells drawn to grid, e.g. foo.csv");
 }
 
 @end

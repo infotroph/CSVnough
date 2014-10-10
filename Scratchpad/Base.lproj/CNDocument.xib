@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SPDocument">
+        <customObject id="-2" userLabel="File's Owner" customClass="CNDocument">
             <connections>
                 <outlet property="table" destination="4My-nP-1Ef" id="jJv-0d-naa"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
@@ -31,7 +31,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="uU9-DR-sHi" id="HGw-PZ-9Bx">
-                                    <rect key="frame" x="0.0" y="0.0" width="665" height="427"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="665" height="428"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -1,6 +1,6 @@
 //
 //  ParserDelegate.m
-//  Scratchpad
+//  CSVnough
 //
 //  'Created' by Chris Black on 2014-08-08,
 //  by copy-pasting from the reference implementation of Dave DeLong's CSCSVParser:

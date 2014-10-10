@@ -1,12 +1,12 @@
 //
 //  SPDocument.m
-//  Scratchpad
+//  CSVnough
 //
 //  Created by Chris Black on 2014-07-15.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
-#import "SPDocument.h"
+#import "CNDocument.h"
 #import "CHCSVParser.h"
 #import "ParserDelegate.h"
 
@@ -15,7 +15,7 @@
 NSStringEncoding fileEnc = 0; // 0=attempt to sniff
                                 // 4=UTF-8
 
-@implementation SPDocument
+@implementation CNDocument
 
 - (id)init
 {
@@ -28,7 +28,7 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
 
 - (NSString *)windowNibName
 {
-    return @"SPDocument";
+    return @"CNDocument";
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
@@ -69,10 +69,8 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
     [p setDelegate:pd];
     [p parse];
     [self setParsedCSVArray:[pd lines]];
-    
-    if (![self parsedCSVArray]) {
-        *outError = [NSError errorWithDomain:NSCocoaErrorDomain
-                                        code:NSFileReadUnknownError userInfo:nil];
+    if (![self parsedCSVArray] || [p totalBytesRead] < [data length]) {
+        *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:nil];
     } else {
         readSuccess = YES;
 //        NSLog(@"%@ %@", NSStringFromSelector(_cmd), [self parsedCSVArray]);
