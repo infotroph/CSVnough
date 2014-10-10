@@ -188,8 +188,7 @@
 				8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */,
 				8111CDB91974F4EC000D7293 /* Supporting Files */,
 			);
-			name = CSVnough;
-			path = Scratchpad;
+			path = CSVnough;
 			sourceTree = "<group>";
 		};
 		8111CDB91974F4EC000D7293 /* Supporting Files */ = {
@@ -210,8 +209,7 @@
 				8111CDE21974F4ED000D7293 /* CSVnoughTests.m */,
 				8111CDDD1974F4ED000D7293 /* Supporting Files */,
 			);
-			name = CSVnoughTests;
-			path = ScratchpadTests;
+			path = CSVnoughTests;
 			sourceTree = "<group>";
 		};
 		8111CDDD1974F4ED000D7293 /* Supporting Files */ = {
@@ -232,8 +230,7 @@
 				8111CE011974F4ED000D7293 /* Importer Read Me.txt */,
 				8111CDF51974F4ED000D7293 /* Supporting Files */,
 			);
-			name = CSVnoughImporter;
-			path = ScratchpadImporter;
+			path = CSVnoughImporter;
 			sourceTree = "<group>";
 		};
 		8111CDF51974F4ED000D7293 /* Supporting Files */ = {
