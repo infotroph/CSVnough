@@ -38,13 +38,9 @@
     [self.table setTarget:self];
     [self.table setDelegate:self];
     [self.table setGridStyleMask:NSTableViewGridNone];
-    [self.table setIntercellSpacing:NSMakeSize(0,0)];
-    [self.table setRowSizeStyle:NSTableViewRowSizeStyleLarge];
-
-    
-//    NSLog(@"%@, csvString: " @"%@", NSStringFromSelector(_cmd), [self csvString]);
-//    NSLog(@"%@, csvTextView: " @"%@", NSStringFromSelector(_cmd), [[self csvTextView] string] );
-    
+    [self.table setIntercellSpacing:NSMakeSize(1,1)];
+    [self.table setRowSizeStyle:NSTableViewRowSizeStyleMedium];
+    [self.table setSelectionHighlightStyle: NSTableViewSelectionHighlightStyleRegular];
 }
 
 + (BOOL)autosavesInPlace
