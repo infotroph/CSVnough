@@ -60,6 +60,7 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
 - (BOOL)readFromData:(NSData *)data
               ofType:(NSString *)CSV
                error:(NSError *__autoreleasing *)outError{
+    [[self undoManager] disableUndoRegistration];
     BOOL readSuccess = NO;
     //NSLog(@"Trying to parse %lu bytes", [data length]);
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
@@ -76,6 +77,7 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
         readSuccess = YES;
 //        NSLog(@"%@ %@", NSStringFromSelector(_cmd), [self parsedCSVArray]);
     }
+    [[self undoManager] enableUndoRegistration];
     return readSuccess;
 }
 
@@ -102,6 +104,7 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
     // NSLog(@"controlTextDidEndEditing: stringValue == %@, row == %d, col==%d", [notification.object stringValue], rowi, coli);
     // NSLog(@"previously: %@", [[_parsedCSVArray objectAtIndex:rowi] objectAtIndex:coli]);
     [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
+    [self updateChangeCount:NSChangeDone];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
