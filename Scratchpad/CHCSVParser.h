@@ -113,6 +113,8 @@ typedef NS_ENUM(NSInteger, CHCSVErrorCode) {
  */
 - (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error;
 
+- (void)parser:(CHCSVParser *)parser didFailToReadBuffer:(NSString *)bufferDescription;
+
 @end
 
 @interface CHCSVParser : NSObject

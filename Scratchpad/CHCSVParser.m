@@ -235,7 +235,9 @@ NSString *const CHCSVErrorDomain = @"com.davedelong.csv";
                 break;
             }
         };
-        
+        if(readLength == 0 && [_delegate respondsToSelector:@selector(parser:didFailToReadBuffer:)]) {
+                [_delegate parser:self didFailToReadBuffer:[_stringBuffer description]];
+        }
         [_stringBuffer replaceBytesInRange:NSMakeRange(0, readLength) withBytes:NULL length:0];
     }
 }
