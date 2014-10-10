@@ -32,8 +32,10 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    if([self parsedCSVArray]){
-        [[self csvTextView] setString:[[self parsedCSVArray] componentsJoinedByString:@"\n"]];
+    if(![self parsedCSVArray]){
+        NSString *estr = [@"" stringByPaddingToLength:55 withString:@",,,,,\n" startingAtIndex:0];
+        NSData *empty = [estr dataUsingEncoding:NSUTF8StringEncoding];
+        [self readFromData:empty ofType:nil error:nil];
     }
     [self.table setTarget:self];
     [self.table setDelegate:self];

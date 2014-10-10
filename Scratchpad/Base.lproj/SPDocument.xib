@@ -7,7 +7,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SPDocument">
             <connections>
-                <outlet property="csvTextView" destination="oRN-8i-hlU" id="8X5-G2-bfe"/>
                 <outlet property="table" destination="4My-nP-1Ef" id="jJv-0d-naa"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
             </connections>
@@ -54,47 +53,15 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDE-FG-oEx">
-                        <rect key="frame" x="-1" y="270" width="682" height="153"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <clipView key="contentView" id="IVg-gf-wK8">
-                            <rect key="frame" x="1" y="1" width="680" height="151"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="oRN-8i-hlU">
-                                    <rect key="frame" x="0.0" y="0.0" width="680" height="151"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="680" height="151"/>
-                                    <size key="maxSize" width="682" height="10000000"/>
-                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="680" height="151"/>
-                                    <size key="maxSize" width="682" height="10000000"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-2" id="AgS-hW-Dxw"/>
-                                    </connections>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="PTb-0l-vvf">
-                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="07W-wc-T9B">
-                            <rect key="frame" x="665" y="1" width="16" height="151"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6g-SO-gwl">
-                        <rect key="frame" x="-1" y="-1" width="677" height="263"/>
+                        <rect key="frame" x="-1" y="-1" width="677" height="445"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="fcU-b3-r7Z">
-                            <rect key="frame" x="1" y="17" width="675" height="245"/>
+                            <rect key="frame" x="1" y="17" width="675" height="427"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="bS2-JD-DVX" viewBased="YES" id="4My-nP-1Ef">
-                                    <rect key="frame" x="0.0" y="0.0" width="675" height="245"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="675" height="427"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,7 +110,7 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Nrd-mQ-2F1">
-                            <rect key="frame" x="1" y="1" width="0.0" height="16"/>
+                            <rect key="frame" x="1" y="246" width="10" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="TmY-av-hQt">
@@ -157,18 +124,14 @@
                     </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="q6g-SO-gwl" firstAttribute="top" secondItem="fDE-FG-oEx" secondAttribute="bottom" constant="8" symbolic="YES" id="5S3-hl-BUE"/>
+                    <constraint firstItem="q6g-SO-gwl" firstAttribute="bottom" secondItem="sVJ-3v-Qwp" secondAttribute="bottom" id="1L1-g3-Ob9"/>
+                    <constraint firstAttribute="bottom" secondItem="q6g-SO-gwl" secondAttribute="bottom" constant="-1" id="3l8-ak-E3n"/>
                     <constraint firstItem="sVJ-3v-Qwp" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="-1" id="6Cn-0i-s6Y"/>
-                    <constraint firstAttribute="bottom" secondItem="q6g-SO-gwl" secondAttribute="bottom" constant="-1" id="8IU-na-3x1"/>
-                    <constraint firstAttribute="trailing" secondItem="fDE-FG-oEx" secondAttribute="trailing" constant="-16" id="GMQ-X4-ixp"/>
-                    <constraint firstItem="q6g-SO-gwl" firstAttribute="leading" secondItem="sVJ-3v-Qwp" secondAttribute="leading" id="KHr-28-tTL"/>
-                    <constraint firstItem="q6g-SO-gwl" firstAttribute="bottom" secondItem="sVJ-3v-Qwp" secondAttribute="bottom" id="MO4-Gs-h4y"/>
-                    <constraint firstItem="q6g-SO-gwl" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="181" id="Q5z-ho-xkf"/>
-                    <constraint firstItem="fDE-FG-oEx" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="dcH-Th-R1Y"/>
-                    <constraint firstAttribute="trailing" secondItem="q6g-SO-gwl" secondAttribute="trailing" constant="-11" id="dnf-MQ-HOS"/>
+                    <constraint firstAttribute="trailing" secondItem="q6g-SO-gwl" secondAttribute="trailing" constant="-11" id="8QM-2p-988"/>
                     <constraint firstAttribute="trailing" secondItem="sVJ-3v-Qwp" secondAttribute="trailing" constant="-1" id="gn6-ps-2BC"/>
-                    <constraint firstItem="q6g-SO-gwl" firstAttribute="leading" secondItem="fDE-FG-oEx" secondAttribute="leading" id="wQf-oI-9b8"/>
-                    <constraint firstItem="fDE-FG-oEx" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="20" symbolic="YES" id="wpw-Bc-Bmq"/>
+                    <constraint firstItem="q6g-SO-gwl" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="hpj-l4-osF"/>
+                    <constraint firstItem="q6g-SO-gwl" firstAttribute="top" secondItem="sVJ-3v-Qwp" secondAttribute="top" id="wgy-nF-9ZB"/>
+                    <constraint firstItem="q6g-SO-gwl" firstAttribute="leading" secondItem="sVJ-3v-Qwp" secondAttribute="leading" id="zIL-UJ-ZgW"/>
                 </constraints>
             </view>
             <connections>
