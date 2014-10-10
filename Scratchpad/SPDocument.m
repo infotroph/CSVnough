@@ -128,13 +128,13 @@
         return nil;
     }
     
-    if (rowarr.count > [tv numberOfColumns]){
-//        NSLog(@"Add col");
+    while (rowarr.count > [tv numberOfColumns]){
+//        NSLog(@"%ld columns in view, %lu fields in row %ld. Adding a column.", (long)[tv numberOfColumns], (unsigned long)[rowarr count], (long)row);
         NSTableColumn *newtc = [[NSTableColumn alloc]
                                 initWithIdentifier:[NSString stringWithFormat:@"%ld",
                                                     (long)[tv numberOfColumns]+1]];
-        [newtc setEditable:YES];
         [tv addTableColumn:newtc];
+        [tv reloadData];
     }
     
     NSTextField *cell = [tv makeViewWithIdentifier:@"tablecellview" owner:self];
