@@ -12,6 +12,8 @@
 
 // TODO: be flexible with this, parser already knows how
 #define DELIMITER ','
+NSStringEncoding fileEnc = 0; // 0=attempt to sniff
+                                // 4=UTF-8
 
 @implementation SPDocument
 
@@ -61,7 +63,7 @@
     BOOL readSuccess = NO;
     //NSLog(@"Trying to parse %lu bytes", [data length]);
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
-    CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:nil delimiter:DELIMITER];
+    CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&fileEnc delimiter:DELIMITER];
     ParserDelegate * pd = [[ParserDelegate alloc] init];
     [p setDelegate:pd];
     [p parse];
