@@ -29,9 +29,9 @@
 		8111CDFB1974F4ED000D7293 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFA1974F4ED000D7293 /* main.c */; };
 		8111CDFD1974F4ED000D7293 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFC1974F4ED000D7293 /* GetMetadataForFile.m */; };
 		8111CE001974F4ED000D7293 /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */; };
+		81AAED9A19E8795A007AB776 /* GridTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AAED9919E8795A007AB776 /* GridTableView.m */; };
 		81FD56191995B77A005D19D8 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD56181995B77A005D19D8 /* CHCSVParser.m */; };
 		81FD561F1995D748005D19D8 /* ParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD561E1995D748005D19D8 /* ParserDelegate.m */; };
-		81FD56221995D95F005D19D8 /* GridTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD56211995D95F005D19D8 /* GridTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,12 +86,12 @@
 		8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		8111CE011974F4ED000D7293 /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		8111CE021974F4ED000D7293 /* CSVnoughImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSVnoughImporter-Prefix.pch"; sourceTree = "<group>"; };
+		81AAED9919E8795A007AB776 /* GridTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridTableView.m; sourceTree = "<group>"; };
 		81FD56171995B77A005D19D8 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		81FD56181995B77A005D19D8 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		81FD561D1995D748005D19D8 /* ParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserDelegate.h; sourceTree = "<group>"; };
 		81FD561E1995D748005D19D8 /* ParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserDelegate.m; sourceTree = "<group>"; };
 		81FD56201995D95F005D19D8 /* GridTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridTableView.h; sourceTree = "<group>"; };
-		81FD56211995D95F005D19D8 /* GridTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +179,7 @@
 				81FD561D1995D748005D19D8 /* ParserDelegate.h */,
 				81FD561E1995D748005D19D8 /* ParserDelegate.m */,
 				81FD56201995D95F005D19D8 /* GridTableView.h */,
-				81FD56211995D95F005D19D8 /* GridTableView.m */,
+				81AAED9919E8795A007AB776 /* GridTableView.m */,
 				81FD56171995B77A005D19D8 /* CHCSVParser.h */,
 				81FD56181995B77A005D19D8 /* CHCSVParser.m */,
 				8111CDC71974F4EC000D7293 /* CNDocument.xib */,
@@ -188,8 +188,7 @@
 				8111CDCD1974F4ED000D7293 /* Document.xcdatamodeld */,
 				8111CDB91974F4EC000D7293 /* Supporting Files */,
 			);
-			name = CSVnough;
-			path = Scratchpad;
+			path = CSVnough;
 			sourceTree = "<group>";
 		};
 		8111CDB91974F4EC000D7293 /* Supporting Files */ = {
@@ -210,8 +209,7 @@
 				8111CDE21974F4ED000D7293 /* CSVnoughTests.m */,
 				8111CDDD1974F4ED000D7293 /* Supporting Files */,
 			);
-			name = CSVnoughTests;
-			path = ScratchpadTests;
+			path = CSVnoughTests;
 			sourceTree = "<group>";
 		};
 		8111CDDD1974F4ED000D7293 /* Supporting Files */ = {
@@ -232,8 +230,7 @@
 				8111CE011974F4ED000D7293 /* Importer Read Me.txt */,
 				8111CDF51974F4ED000D7293 /* Supporting Files */,
 			);
-			name = CSVnoughImporter;
-			path = ScratchpadImporter;
+			path = CSVnoughImporter;
 			sourceTree = "<group>";
 		};
 		8111CDF51974F4ED000D7293 /* Supporting Files */ = {
@@ -378,8 +375,8 @@
 				8111CDCF1974F4ED000D7293 /* Document.xcdatamodeld in Sources */,
 				8111CDC61974F4EC000D7293 /* CNDocument.m in Sources */,
 				8111CDBF1974F4EC000D7293 /* main.m in Sources */,
-				81FD56221995D95F005D19D8 /* GridTableView.m in Sources */,
 				81FD561F1995D748005D19D8 /* ParserDelegate.m in Sources */,
+				81AAED9A19E8795A007AB776 /* GridTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
