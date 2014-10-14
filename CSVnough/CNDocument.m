@@ -64,6 +64,7 @@
     BOOL readSuccess = NO;
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
     ParserDelegate * pd = [[ParserDelegate alloc] initParserAndDelegateFromStream:stream usedEncoding:4 delimiter:DELIMITER];
+    [[pd parser] parse];
     [self setParsedCSVArray:[pd lines]];
     if (![self parsedCSVArray]) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:nil];

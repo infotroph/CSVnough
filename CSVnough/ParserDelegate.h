@@ -12,6 +12,7 @@
 @interface ParserDelegate : NSObject <CHCSVParserDelegate>
 
 @property (readonly) NSMutableArray *lines;
+@property CHCSVParser *parser;
 @property NSStringEncoding encodingUsedByParser;
 
 -(id)initParserAndDelegateFromStream:(NSInputStream *)stream usedEncoding:(NSStringEncoding)encoding delimiter:(unichar)delimiter;

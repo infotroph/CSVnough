@@ -73,9 +73,8 @@ didFailWithError:(NSError *)error {
         if(encoding){
             _encodingUsedByParser = encoding;
         }
-        CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&_encodingUsedByParser delimiter:delimiter];
-        [p setDelegate:self];
-        [p parse];
+        _parser = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&_encodingUsedByParser delimiter:delimiter];
+        [_parser setDelegate:self];
     }
     return self;
 }
