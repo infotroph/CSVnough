@@ -35,7 +35,9 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
 {
     [super windowControllerDidLoadNib:aController];
     if(![self parsedCSVArray]){
-        NSString *estr = [@"" stringByPaddingToLength:55 withString:@",,,,,\n" startingAtIndex:0];
+        // No file open, set up an 5x10 empty grid instead.
+        // TODO: check more carefully that it's 'no file' and not 'open failed.'
+        NSString *estr = [@"" stringByPaddingToLength:50 withString:@",,,,\n" startingAtIndex:0];
         NSData *empty = [estr dataUsingEncoding:NSUTF8StringEncoding];
         [self readFromData:empty ofType:nil error:nil];
     }
