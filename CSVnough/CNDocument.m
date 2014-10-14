@@ -12,8 +12,6 @@
 
 // TODO: be flexible with this, parser already knows how
 #define DELIMITER ','
-NSStringEncoding fileEnc = 0; // 0=attempt to sniff
-                                // 4=UTF-8
 
 @implementation CNDocument
 
@@ -66,12 +64,9 @@ NSStringEncoding fileEnc = 0; // 0=attempt to sniff
     BOOL readSuccess = NO;
     //NSLog(@"Trying to parse %lu bytes", [data length]);
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
-    CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&fileEnc delimiter:DELIMITER];
-    ParserDelegate * pd = [[ParserDelegate alloc] init];
-    [p setDelegate:pd];
-    [p parse];
+    ParserDelegate * pd = [[ParserDelegate alloc] initParserAndDelegateFromStream:stream usedEncoding:4 delimiter:DELIMITER];
     [self setParsedCSVArray:[pd lines]];
-    if (![self parsedCSVArray] || [p totalBytesRead] < [data length]) {
+    if (![self parsedCSVArray]) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:nil];
     } else {
         readSuccess = YES;

@@ -31,6 +31,7 @@
 @implementation ParserDelegate {
     NSMutableArray *_lines;
     NSMutableArray *_currentLine;
+    NSStringEncoding _encodingUsedByParser;
 }
 - (void)parserDidBeginDocument:(CHCSVParser *)parser {
     _lines = [[NSMutableArray alloc] init];
@@ -61,6 +62,21 @@ didFailWithError:(NSError *)error {
     _lines = nil;
 }
 
+
+-(id)initParserAndDelegateFromStream:(NSInputStream *)stream usedEncoding:(NSStringEncoding)encoding delimiter:(unichar)delimiter {
+    self = [super init];
+    if(self == nil){
+        NSLog(@"Initialization failed ¯\\_(ツ)_/¯");
+        // TODO: Handle the error more sensibly.
+    } else {
+        if(encoding){
+            _encodingUsedByParser = encoding;
+        }
+        CHCSVParser *p = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&_encodingUsedByParser delimiter:delimiter];
+        [p setDelegate:self];
+        [p parse];
+    }
+    return self;
 }
 
 @end
