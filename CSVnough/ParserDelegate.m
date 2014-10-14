@@ -52,9 +52,10 @@
     _currentLine = nil;
 }
 - (void)parserDidEndDocument:(CHCSVParser *)parser {
-    //    NSLog(@"parser ended. Read %lu bytes: %@",
-    //      (unsigned long)[parser totalBytesRead],
-    //      [[parser delegate] performSelector:@selector(lines)]);
+    NSLog(@"parser ended. Read %lu bytes, interpreted as %@: %@",
+          (unsigned long)[parser totalBytesRead],
+          CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(_encodingUsedByParser)),
+          _lines);
 }
 - (void)parser:(CHCSVParser *)parser
 didFailWithError:(NSError *)error {

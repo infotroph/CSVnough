@@ -62,7 +62,6 @@
                error:(NSError *__autoreleasing *)outError{
     [[self undoManager] disableUndoRegistration];
     BOOL readSuccess = NO;
-    //NSLog(@"Trying to parse %lu bytes", [data length]);
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
     ParserDelegate * pd = [[ParserDelegate alloc] initParserAndDelegateFromStream:stream usedEncoding:4 delimiter:DELIMITER];
     [self setParsedCSVArray:[pd lines]];
