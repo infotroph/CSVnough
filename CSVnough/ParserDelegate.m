@@ -61,8 +61,6 @@ didFailWithError:(NSError *)error {
     _lines = nil;
 }
 
-- (void)parser:(CHCSVParser *)parser didFailToReadBuffer:(NSString *)bufferDescription {
-    NSLog(@"Don't know how to make bytes '%@' into a string. Check character encoding?", bufferDescription);
 }
 
 @end

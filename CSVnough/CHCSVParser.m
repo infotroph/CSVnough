@@ -235,8 +235,9 @@ NSString *const CHCSVErrorDomain = @"com.davedelong.csv";
                 break;
             }
         };
-        if(readLength == 0 && [_delegate respondsToSelector:@selector(parser:didFailToReadBuffer:)]) {
-                [_delegate parser:self didFailToReadBuffer:[_stringBuffer description]];
+        if(readLength == 0) {
+            NSString *description = [NSString stringWithFormat:@"Couldn't interpret bytes %@ as a %@ string",[_stringBuffer description], CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(_streamEncoding))];
+                _error = [[NSError alloc] initWithDomain:CHCSVErrorDomain code:CHCSVErrorCodeInvalidFormat userInfo:@{NSLocalizedDescriptionKey : description}];
         }
         [_stringBuffer replaceBytesInRange:NSMakeRange(0, readLength) withBytes:NULL length:0];
     }
