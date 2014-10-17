@@ -29,6 +29,8 @@
 		8111CDFB1974F4ED000D7293 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFA1974F4ED000D7293 /* main.c */; };
 		8111CDFD1974F4ED000D7293 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFC1974F4ED000D7293 /* GetMetadataForFile.m */; };
 		8111CE001974F4ED000D7293 /* MySpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */; };
+		814DFF9A19E8D5670030A4A2 /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 814DFF9819E8D5670030A4A2 /* UnitTests.m */; };
+		814DFF9B19E8D5670030A4A2 /* Issue64.csv in Resources */ = {isa = PBXBuildFile; fileRef = 814DFF9919E8D5670030A4A2 /* Issue64.csv */; };
 		81AAED9A19E8795A007AB776 /* GridTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AAED9919E8795A007AB776 /* GridTableView.m */; };
 		81FD56191995B77A005D19D8 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD56181995B77A005D19D8 /* CHCSVParser.m */; };
 		81FD561F1995D748005D19D8 /* ParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD561E1995D748005D19D8 /* ParserDelegate.m */; };
@@ -86,6 +88,10 @@
 		8111CDFF1974F4ED000D7293 /* MySpotlightImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySpotlightImporter.m; sourceTree = "<group>"; };
 		8111CE011974F4ED000D7293 /* Importer Read Me.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Importer Read Me.txt"; sourceTree = "<group>"; };
 		8111CE021974F4ED000D7293 /* CSVnoughImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSVnoughImporter-Prefix.pch"; sourceTree = "<group>"; };
+		814DFF9619E8D5670030A4A2 /* UnitTestContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestContent.h; sourceTree = "<group>"; };
+		814DFF9719E8D5670030A4A2 /* UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTests.h; sourceTree = "<group>"; };
+		814DFF9819E8D5670030A4A2 /* UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitTests.m; sourceTree = "<group>"; };
+		814DFF9919E8D5670030A4A2 /* Issue64.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Issue64.csv; sourceTree = "<group>"; };
 		81AAED9919E8795A007AB776 /* GridTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridTableView.m; sourceTree = "<group>"; };
 		81FD56171995B77A005D19D8 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		81FD56181995B77A005D19D8 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 		8111CDDC1974F4ED000D7293 /* CSVnoughTests */ = {
 			isa = PBXGroup;
 			children = (
+				81EE1D7219F1781D00950ACD /* CHCSVUnitTests */,
 				8111CDE21974F4ED000D7293 /* CSVnoughTests.m */,
 				8111CDDD1974F4ED000D7293 /* Supporting Files */,
 			);
@@ -242,6 +249,17 @@
 				8111CE021974F4ED000D7293 /* CSVnoughImporter-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81EE1D7219F1781D00950ACD /* CHCSVUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				814DFF9619E8D5670030A4A2 /* UnitTestContent.h */,
+				814DFF9719E8D5670030A4A2 /* UnitTests.h */,
+				814DFF9819E8D5670030A4A2 /* UnitTests.m */,
+				814DFF9919E8D5670030A4A2 /* Issue64.csv */,
+			);
+			name = CHCSVUnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814DFF9B19E8D5670030A4A2 /* Issue64.csv in Resources */,
 				8111CDE11974F4ED000D7293 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8111CDE31974F4ED000D7293 /* CSVnoughTests.m in Sources */,
+				814DFF9A19E8D5670030A4A2 /* UnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

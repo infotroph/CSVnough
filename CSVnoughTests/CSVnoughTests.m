@@ -26,13 +26,13 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-- (void)missingCells{
-    XCTFail(@"Not all cells drawn to grid, e.g. foo.csv");
-}
+//- (void)testExample
+//{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)missingCells{
+//    XCTFail(@"Not all cells drawn to grid, e.g. foo.csv");
+//}
 
 @end
