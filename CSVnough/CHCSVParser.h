@@ -46,7 +46,13 @@ typedef NS_ENUM(NSInteger, CHCSVErrorCode) {
      *  When using @c CHCSVParserOptionsUsesFirstLineAsKeys, all of the lines in the file
      *  must have the same number of fields. If they do not, parsing is aborted and this error is returned.
      */
-    CHCSVErrorCodeIncorrectNumberOfFields,
+    CHCSVErrorCodeIncorrectNumberOfFields = 2,
+    
+    /**
+     *  Couldn't read a chunk of the file as text. 
+     *  Usually seems to mean file was opened with the wrong encoding, but could also indicate file corruption.
+     */
+    CHCSVErrorCodeBadCharacters = 3,
 };
 
 @class CHCSVParser;

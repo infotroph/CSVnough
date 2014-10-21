@@ -59,6 +59,9 @@
 }
 - (void)parser:(CHCSVParser *)parser
 didFailWithError:(NSError *)error {
+    if([error code] == CHCSVErrorCodeBadCharacters){
+        NSLog(@"Couldn't read file as %@ -- try a different encoding?", CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(_encodingUsedByParser)));
+    }
 	NSLog(@"ERROR: %@", error);
     _lines = nil;
 }
