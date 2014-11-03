@@ -31,6 +31,7 @@
 @implementation ParserDelegate {
     NSMutableArray *_lines;
     NSMutableArray *_currentLine;
+    NSStringEncoding _encodingUsedByParser;
 }
 - (void)parserDidBeginDocument:(CHCSVParser *)parser {
     _lines = [[NSMutableArray alloc] init];
@@ -51,9 +52,10 @@
     _currentLine = nil;
 }
 - (void)parserDidEndDocument:(CHCSVParser *)parser {
-    //    NSLog(@"parser ended. Read %lu bytes: %@",
-    //      (unsigned long)[parser totalBytesRead],
-    //      [[parser delegate] performSelector:@selector(lines)]);
+    NSLog(@"parser ended. Read %lu bytes, interpreted as %@: %@",
+          (unsigned long)[parser totalBytesRead],
+          CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(_encodingUsedByParser)),
+          _lines);
 }
 - (void)parser:(CHCSVParser *)parser
 didFailWithError:(NSError *)error {
@@ -80,6 +82,20 @@ didFailWithError:(NSError *)error {
     _lines = nil;
 }
 
+
+-(id)initParserAndDelegateFromStream:(NSInputStream *)stream usedEncoding:(NSStringEncoding)encoding delimiter:(unichar)delimiter {
+    self = [super init];
+    if(self == nil){
+        NSLog(@"Initialization failed ¯\\_(ツ)_/¯");
+        // TODO: Handle the error more sensibly.
+    } else {
+        if(encoding){
+            _encodingUsedByParser = encoding;
+        }
+        _parser = [[CHCSVParser alloc] initWithInputStream:stream usedEncoding:&_encodingUsedByParser delimiter:delimiter];
+        [_parser setDelegate:self];
+    }
+    return self;
 }
 
 @end

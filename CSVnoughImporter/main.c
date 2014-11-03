@@ -114,7 +114,7 @@ MetadataImporterPluginType *AllocMetadataImporterPluginType(CFUUIDRef inFactoryI
 }
 
 // -----------------------------------------------------------------------------
-//	DeallocScratchpadImporterMDImporterPluginType
+//	DeallocCSVnoughImporterMDImporterPluginType
 // -----------------------------------------------------------------------------
 //	Utility function that deallocates the instance when
 //	the refCount goes to zero.
@@ -200,7 +200,7 @@ ULONG MetadataImporterPluginRelease(void *thisInstance)
 }
 
 // -----------------------------------------------------------------------------
-//	ScratchpadImporterMDImporterPluginFactory
+//	CSVnoughImporterMDImporterPluginFactory
 // -----------------------------------------------------------------------------
 //	Implementation of the factory function for this type.
 //

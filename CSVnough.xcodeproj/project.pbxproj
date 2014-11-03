@@ -541,12 +541,12 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ScratchpadImporter/CSVnoughImporter-Prefix.pch";
+				GCC_PREFIX_HEADER = "CSVnoughImporter/CSVnoughImporter-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ScratchpadImporter/CSVnoughImporter-Info.plist";
+				INFOPLIST_FILE = "CSVnoughImporter/CSVnoughImporter-Info.plist";
 				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
 				LIBRARY_STYLE = BUNDLE;
 				PRODUCT_NAME = CSVnoughImporter;
@@ -561,8 +561,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ScratchpadImporter/CSVnoughImporter-Prefix.pch";
-				INFOPLIST_FILE = "ScratchpadImporter/CSVnoughImporter-Info.plist";
+				GCC_PREFIX_HEADER = "CSVnoughImporter/CSVnoughImporter-Prefix.pch";
+				INFOPLIST_FILE = "CSVnoughImporter/CSVnoughImporter-Info.plist";
 				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
 				LIBRARY_STYLE = BUNDLE;
 				PRODUCT_NAME = CSVnoughImporter;
@@ -577,8 +577,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scratchpad/CSVnough-Prefix.pch";
-				INFOPLIST_FILE = "Scratchpad/CSVnough-Info.plist";
+				GCC_PREFIX_HEADER = "CSVnough/CSVnough-Prefix.pch";
+				INFOPLIST_FILE = "CSVnough/CSVnough-Info.plist";
 				PRODUCT_NAME = CSVnough;
 				WRAPPER_EXTENSION = app;
 			};
@@ -590,8 +590,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scratchpad/CSVnough-Prefix.pch";
-				INFOPLIST_FILE = "Scratchpad/CSVnough-Info.plist";
+				GCC_PREFIX_HEADER = "CSVnough/CSVnough-Prefix.pch";
+				INFOPLIST_FILE = "CSVnough/CSVnough-Info.plist";
 				PRODUCT_NAME = CSVnough;
 				WRAPPER_EXTENSION = app;
 			};
@@ -600,19 +600,19 @@
 		8111CE0C1974F4ED000D7293 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scratchpad.app/Contents/MacOS/Scratchpad";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CSVnough.app/Contents/MacOS/CSVnough";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scratchpad/Scratchpad-Prefix.pch";
+				GCC_PREFIX_HEADER = "CSVnough/CSVnough-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ScratchpadTests/CSVnoughTests-Info.plist";
+				INFOPLIST_FILE = "CSVnoughTests/CSVnoughTests-Info.plist";
 				PRODUCT_NAME = CSVnoughTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -622,15 +622,15 @@
 		8111CE0D1974F4ED000D7293 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scratchpad.app/Contents/MacOS/Scratchpad";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CSVnough.app/Contents/MacOS/CSVnough";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scratchpad/Scratchpad-Prefix.pch";
-				INFOPLIST_FILE = "ScratchpadTests/CSVnoughTests-Info.plist";
+				GCC_PREFIX_HEADER = "CSVnough/CSVnough-Prefix.pch";
+				INFOPLIST_FILE = "CSVnoughTests/CSVnoughTests-Info.plist";
 				PRODUCT_NAME = CSVnoughTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
