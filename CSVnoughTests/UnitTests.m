@@ -26,6 +26,7 @@
 #import "UnitTests.h"
 #import "UnitTestContent.h"
 #import "CHCSVParser.h"
+#import "ParserDelegate.h"
 
 #define TEST_ARRAYS(_actual, _expected) do {\
 XCTAssertEqual(_actual.count, _expected.count, @"incorrect number of records"); \
@@ -55,6 +56,31 @@ NSUInteger _option = _optionList[(sizeof(_optionList)/sizeof(NSUInteger)) == 2 ?
 NSArray *_parsed = [(_csv) CSVComponentsWithOptions:(_option)]; \
 TEST_ARRAYS(_parsed, _expected); \
 } while(0)
+
+
+#define TEST_ENCODING(_csv, _expected, _realencoding, _passedencoding, ...) do {\
+NSData *_csvData = [_csv dataUsingEncoding:_realencoding]; \
+NSInputStream *_stream = [NSInputStream inputStreamWithData:_csvData]; \
+ParserDelegate *_delegate = [[ParserDelegate alloc] initParserAndDelegateFromStream:_stream usedEncoding:_passedencoding delimiter:',']; \
+[[_delegate parser] setTrimsWhitespace:YES]; \
+[[_delegate parser] parse]; \
+NSArray *_parsed = [_delegate lines];\
+TEST_ARRAYS(_parsed, _expected); \
+} while(0)
+
+
+//void (^test_encoding)(NSString*, NSArray*, NSStringEncoding) = ^(NSString *_csv, NSArray *_expected, NSStringEncoding _encoding) {
+//    NSData *_csvData = [_csv dataUsingEncoding:_encoding];
+//    NSInputStream *_stream = [NSInputStream inputStreamWithData:_csvData];
+//    ParserDelegate *_delegate = [[ParserDelegate alloc] initParserAndDelegateFromStream:_stream usedEncoding:_encoding delimiter:','];
+////    XCTAssertNoThrow([[_delegate parser] parse]);
+//    XCTAssertNoThrow(NSLog(@"foo"));
+//    NSArray *_parsed = [_delegate lines];
+////    TEST_ARRAYS(_parsed, _expected);
+//};
+
+
+
 
 @implementation UnitTests
 
@@ -411,6 +437,40 @@ TEST_ARRAYS(_parsed, _expected); \
     NSArray *expected = @[@[FIELD1, FIELD2, FIELD3]];
     
     TEST(csv, expected, CHCSVParserOptionsRecognizesLeadingEqualSign | CHCSVParserOptionsSanitizesFields);
+}
+
+#pragma mark - Testing Character Encodings
+
+- (void)testInvalidCharEncoding {
+//    NSString *csv = FIELD1 COMMA FIELD2 COMMA UTF8FIELD4 COMMA FIELD1;
+//    NSArray *expected = @[@[FIELD1, FIELD2, UTF8FIELD4, FIELD1]];
+//    NSString *csv = @"foo, bar, éxcellence, end";
+//    NSArray *expected = @[@[@"foo", @"bar", @"éxcellence", @"end"]];
+    NSString *csv = @"foo, bar, Äxcellence, end";
+    NSArray *expected = @[@[@"foo", @"bar", @"Äxcellence", @"end"]];
+    
+    
+    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSUTF8StringEncoding);
+//    TEST_ENCODING(csv, expected, NSASCIIStringEncoding, NSASCIIStringEncoding);
+//    TEST_ENCODING(csv, expected, NSASCIIStringEncoding, NSUTF8StringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSUTF8StringEncoding);
+ 
+//    
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSUTF8StringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSMacOSRomanStringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSISOLatin1StringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSWindowsCP1250StringEncoding);
+}
+
+- (void)testQuotedInvalidCharEncoding {
+    NSString *csv = FIELD1 COMMA FIELD2 COMMA QUOTED_UTF8FIELD4 COMMA FIELD1;
+    NSArray *expected = @[@[FIELD1, FIELD2, QUOTED_UTF8FIELD4, FIELD1]];
+
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSASCIIStringEncoding);
+    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSUTF8StringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSMacOSRomanStringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSISOLatin1StringEncoding);
+//    TEST_ENCODING(csv, expected, NSUTF8StringEncoding, NSWindowsCP1250StringEncoding);
 }
 
 @end
