@@ -73,7 +73,7 @@ didFailWithError:(NSError *)error {
             }
         }
         NSAlert *charAlert = [NSAlert alertWithError:error];
-        [charAlert setInformativeText:[NSString stringWithFormat:@"Probable bad character %@ at byte %@ may be interpretable in one of the following encodings... %@", [badbyte description], [error.userInfo objectForKey:@"CHCSVBadDataByteOffset"], possibleCharacters]];
+        [charAlert setInformativeText:[NSString stringWithFormat:@"Probable bad character %@ at byte %@ may be interpretable in one of the following encodings...\n%@", [badbyte description], [error.userInfo objectForKey:@"CHCSVBadDataByteOffset"], possibleCharacters]];
         NSLog(@"ERROR: %@ %@", [charAlert messageText], [charAlert informativeText]);
         [charAlert runModal];
         return;
