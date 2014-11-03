@@ -236,8 +236,16 @@ NSString *const CHCSVErrorDomain = @"com.davedelong.csv";
             }
         };
         if(readLength == 0) {
-            NSString *description = [NSString stringWithFormat:@"Couldn't interpret bytes %@ as a %@ string",[_stringBuffer description], CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(_streamEncoding))];
-                _error = [[NSError alloc] initWithDomain:CHCSVErrorDomain code:CHCSVErrorCodeBadCharacters userInfo:@{NSLocalizedDescriptionKey : description}];
+            // no subset of _stringBuffer was interpretable as an NSString...
+            // maybe the user needs to specify a different character encoding?
+            
+            NSString *description = [NSString stringWithFormat:@"Could not read data as a %@ string.", CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(_streamEncoding))];
+            NSDictionary *uinfo = @{
+                NSLocalizedDescriptionKey : description,
+                NSStringEncodingErrorKey : [NSNumber numberWithUnsignedLong:_streamEncoding],
+                @"CHCSVBadData": [_stringBuffer subdataWithRange:NSMakeRange(0, 1)],
+                @"CHCSVBadDataByteOffset": [NSNumber numberWithUnsignedInteger:_totalBytesRead-[_stringBuffer length]]};
+                _error = [[NSError alloc] initWithDomain:CHCSVErrorDomain code:CHCSVErrorCodeBadCharacters userInfo:uinfo];
         }
         [_stringBuffer replaceBytesInRange:NSMakeRange(0, readLength) withBytes:NULL length:0];
     }
