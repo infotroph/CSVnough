@@ -59,6 +59,25 @@
 }
 - (void)parser:(CHCSVParser *)parser
 didFailWithError:(NSError *)error {
+    if([error code] == CHCSVErrorCodeBadCharacters){
+        NSData *badbyte = [error.userInfo objectForKey:@"CHCSVBadData"];
+        NSMutableString *possibleCharacters = [[NSMutableString alloc] initWithString:@""];
+        for (int e=1; e<=30; e++) {
+            NSStringEncoding encoding = e;
+            NSString *readString = [[NSString alloc] initWithBytes:[badbyte bytes] length:[badbyte length] encoding:encoding];
+            if (readString != nil){
+                NSString *encstr = [NSString stringWithFormat:@"%@: \"%@\"\n",
+                      CFStringGetNameOfEncoding(CFStringConvertNSStringEncodingToEncoding(encoding)),
+                      readString];
+                [possibleCharacters appendString:encstr];
+            }
+        }
+        NSAlert *charAlert = [NSAlert alertWithError:error];
+        [charAlert setInformativeText:[NSString stringWithFormat:@"Probable bad character %@ at byte %@ may be interpretable in one of the following encodings...\n%@", [badbyte description], [error.userInfo objectForKey:@"CHCSVBadDataByteOffset"], possibleCharacters]];
+        NSLog(@"ERROR: %@ %@", [charAlert messageText], [charAlert informativeText]);
+        [charAlert runModal];
+        return;
+    }
 	NSLog(@"ERROR: %@", error);
     _lines = nil;
 }
