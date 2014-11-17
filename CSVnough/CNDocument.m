@@ -96,8 +96,19 @@
 - (void) controlTextDidEndEditing: (NSNotification *) notification {
     int rowi = (int)[_table rowForView:[notification object]];
     int coli = (int)[_table columnForView:[notification object]];
-    // NSLog(@"controlTextDidEndEditing: stringValue == %@, row == %d, col==%d", [notification.object stringValue], rowi, coli);
-    // NSLog(@"previously: %@", [[_parsedCSVArray objectAtIndex:rowi] objectAtIndex:coli]);
+
+    // If edited cell was outside existing array bounds, extend parsed array to add it.
+    while(rowi >= [_parsedCSVArray count]){
+        NSMutableArray *newrow = [[NSMutableArray alloc] init];
+        for(int i=0; i<coli; i++){
+            [newrow addObject:@""];
+        }
+        [_parsedCSVArray addObject:newrow];
+    }
+    while(coli >= [[_parsedCSVArray objectAtIndex:rowi] count]){
+        [[_parsedCSVArray objectAtIndex:rowi] addObject:@""];
+    }
+          
     [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
     [self updateChangeCount:NSChangeDone];
 }
