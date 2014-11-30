@@ -45,6 +45,7 @@
     [self.table setIntercellSpacing:NSMakeSize(1,1)];
     [self.table setRowSizeStyle:NSTableViewRowSizeStyleMedium];
     [self.table setSelectionHighlightStyle: NSTableViewSelectionHighlightStyleRegular];
+    [self.table editColumn:0 row:0 withEvent:nil select:NO];
 }
 
 + (BOOL)autosavesInPlace
