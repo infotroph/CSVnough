@@ -137,7 +137,7 @@
         NSLog(@"Couldn't find a column matching that identifier. Aborting!");
         return nil;
     }
-    [tc.headerCell setStringValue:[[NSNumber numberWithInteger:colidx] stringValue]];
+    [tc.headerCell setStringValue:[[NSNumber numberWithInteger:colidx+1] stringValue]];
     
     while (rowarr.count > [tv numberOfColumns]){
 //        NSLog(@"%ld columns in view, %lu fields in row %ld. Adding a column.", (long)[tv numberOfColumns], (unsigned long)[rowarr count], (long)row);
