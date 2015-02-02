@@ -131,6 +131,7 @@
     }
 }
 
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return self.parsedCSVArray.count;
 }
