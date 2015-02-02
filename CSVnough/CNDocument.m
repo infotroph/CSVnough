@@ -97,21 +97,24 @@
 - (void) controlTextDidEndEditing: (NSNotification *) notification {
     int rowi = (int)[_table rowForView:[notification object]];
     int coli = (int)[_table columnForView:[notification object]];
+    [self addCellsIfNeededAtRow:rowi col:coli];
+    [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
+    [self updateChangeCount:NSChangeDone];
+    [_table reloadData];
+}
 
-    // If edited cell was outside existing array bounds, extend parsed array to add it.
-    while(rowi >= [_parsedCSVArray count]){
+- (void) addCellsIfNeededAtRow:(int)row col:(int) col {
+    // Extend parsed array as needed to contain new cells
+    while(row >= [_parsedCSVArray count]){
         NSMutableArray *newrow = [[NSMutableArray alloc] init];
-        for(int i=0; i<coli; i++){
+        for(int i=0; i<col; i++){
             [newrow addObject:@""];
         }
         [_parsedCSVArray addObject:newrow];
     }
-    while(coli >= [[_parsedCSVArray objectAtIndex:rowi] count]){
-        [[_parsedCSVArray objectAtIndex:rowi] addObject:@""];
+    while(col >= [[_parsedCSVArray objectAtIndex:row] count]){
+        [[_parsedCSVArray objectAtIndex:row] addObject:@""];
     }
-          
-    [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
-    [self updateChangeCount:NSChangeDone];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
