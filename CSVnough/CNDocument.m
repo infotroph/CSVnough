@@ -33,9 +33,10 @@
 {
     [super windowControllerDidLoadNib:aController];
     if(![self parsedCSVArray]){
-        // No file open, set up an 5x10 empty grid instead.
+        // No file open, set up an empty one-cell 'grid' instead.
+        // Will add more rows & cols as needed.
         // TODO: check more carefully that it's 'no file' and not 'open failed.'
-        NSString *estr = [@"" stringByPaddingToLength:50 withString:@",,,,\n" startingAtIndex:0];
+        NSString *estr = @"\n";
         NSData *empty = [estr dataUsingEncoding:NSUTF8StringEncoding];
         [self readFromData:empty ofType:nil error:nil];
     }
