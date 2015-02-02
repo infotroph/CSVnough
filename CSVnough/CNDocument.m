@@ -103,18 +103,18 @@
     [self addCellsIfNeededAtRow:rowi col:coli];
     [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
     [self updateChangeCount:NSChangeDone];
-    [_table reloadData];
 
     // At edge of grid? Add more!
     if ((rowi+1 == [_table numberOfRows])
         && (textMovement == NSReturnTextMovement  || textMovement == NSDownTextMovement)) {
         [self addCellsIfNeededAtRow:rowi+1 col:coli];
+        [_table reloadData];
     }
     if ((coli+1 == [_table numberOfColumns])
         && (textMovement == NSTabTextMovement  || textMovement == NSRightTextMovement)) {
         [self addCellsIfNeededAtRow:rowi col:coli+1];
+        [_table reloadData];
     }
-    [_table reloadData];
 }
 
 - (void) addCellsIfNeededAtRow:(int)row col:(int) col {
@@ -173,12 +173,16 @@
         cell.delegate = (id)self; //(id) to suppress protocol mismatch messages. Hacky!
     }
     
-    if ((colidx) < [rowarr count]){ // is this check necessary?
-//        NSLog(@"row %ld col %ld equals %@", (long)row, (long)colidx, rowarr[colidx]);
-        cell.stringValue = rowarr[colidx];
-    }
     [cell setNeedsDisplay:YES];
     return cell;    
 }
+
+- (id) tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tc row:(NSInteger)row {
+    NSArray *rowarr = [_parsedCSVArray objectAtIndex:row];
+    NSInteger colidx = [tv columnWithIdentifier:[tc identifier]];
+    [self addCellsIfNeededAtRow:row col:colidx];
+    return rowarr[colidx];
+}
+
 
 @end
