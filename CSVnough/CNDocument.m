@@ -100,24 +100,24 @@
     int coli = (int)[_table columnForView:[notification object]];
     int textMovement = [[[notification userInfo] valueForKey:@"NSTextMovement"] intValue];
 
-    [self addCellsIfNeededAtRow:rowi col:coli];
+    [self addCellsIfNeededAtColumn:coli row:rowi];
     [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
     [self updateChangeCount:NSChangeDone];
 
     // At edge of grid? Add more!
     if ((rowi+1 == [_table numberOfRows])
         && (textMovement == NSReturnTextMovement  || textMovement == NSDownTextMovement)) {
-        [self addCellsIfNeededAtRow:rowi+1 col:coli];
+        [self addCellsIfNeededAtColumn:coli row:rowi+1];
         [_table reloadData];
     }
     if ((coli+1 == [_table numberOfColumns])
         && (textMovement == NSTabTextMovement  || textMovement == NSRightTextMovement)) {
-        [self addCellsIfNeededAtRow:rowi col:coli+1];
+        [self addCellsIfNeededAtColumn:coli+1 row:rowi];
         [_table reloadData];
     }
 }
 
-- (void) addCellsIfNeededAtRow:(int)row col:(int) col {
+- (void) addCellsIfNeededAtColumn:(NSInteger)col row:(NSInteger) row {
     // Extend parsed array as needed to contain new cells
     while(row >= [_parsedCSVArray count]){
         NSMutableArray *newrow = [[NSMutableArray alloc] init];
@@ -180,7 +180,7 @@
 - (id) tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tc row:(NSInteger)row {
     NSArray *rowarr = [_parsedCSVArray objectAtIndex:row];
     NSInteger colidx = [tv columnWithIdentifier:[tc identifier]];
-    [self addCellsIfNeededAtRow:row col:colidx];
+    [self addCellsIfNeededAtColumn:colidx row:row];
     return rowarr[colidx];
 }
 
