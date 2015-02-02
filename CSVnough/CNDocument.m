@@ -97,9 +97,22 @@
 - (void) controlTextDidEndEditing: (NSNotification *) notification {
     int rowi = (int)[_table rowForView:[notification object]];
     int coli = (int)[_table columnForView:[notification object]];
+    int textMovement = [[[notification userInfo] valueForKey:@"NSTextMovement"] intValue];
+
     [self addCellsIfNeededAtRow:rowi col:coli];
     [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
     [self updateChangeCount:NSChangeDone];
+    [_table reloadData];
+
+    // At edge of grid? Add more!
+    if ((rowi+1 == [_table numberOfRows])
+        && (textMovement == NSReturnTextMovement  || textMovement == NSDownTextMovement)) {
+        [self addCellsIfNeededAtRow:rowi+1 col:coli];
+    }
+    if ((coli+1 == [_table numberOfColumns])
+        && (textMovement == NSTabTextMovement  || textMovement == NSRightTextMovement)) {
+        [self addCellsIfNeededAtRow:rowi col:coli+1];
+    }
     [_table reloadData];
 }
 
