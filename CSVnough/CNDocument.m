@@ -33,9 +33,10 @@
 {
     [super windowControllerDidLoadNib:aController];
     if(![self parsedCSVArray]){
-        // No file open, set up an 5x10 empty grid instead.
+        // No file open, set up an empty one-cell 'grid' instead.
+        // Will add more rows & cols as needed.
         // TODO: check more carefully that it's 'no file' and not 'open failed.'
-        NSString *estr = [@"" stringByPaddingToLength:50 withString:@",,,,\n" startingAtIndex:0];
+        NSString *estr = @"\n";
         NSData *empty = [estr dataUsingEncoding:NSUTF8StringEncoding];
         [self readFromData:empty ofType:nil error:nil];
     }
@@ -45,6 +46,7 @@
     [self.table setIntercellSpacing:NSMakeSize(1,1)];
     [self.table setRowSizeStyle:NSTableViewRowSizeStyleMedium];
     [self.table setSelectionHighlightStyle: NSTableViewSelectionHighlightStyleRegular];
+    [self.table editColumn:0 row:0 withEvent:nil select:NO];
 }
 
 + (BOOL)autosavesInPlace
@@ -96,22 +98,39 @@
 - (void) controlTextDidEndEditing: (NSNotification *) notification {
     int rowi = (int)[_table rowForView:[notification object]];
     int coli = (int)[_table columnForView:[notification object]];
+    int textMovement = [[[notification userInfo] valueForKey:@"NSTextMovement"] intValue];
 
-    // If edited cell was outside existing array bounds, extend parsed array to add it.
-    while(rowi >= [_parsedCSVArray count]){
+    [self addCellsIfNeededAtColumn:coli row:rowi];
+    [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
+    [self updateChangeCount:NSChangeDone];
+
+    // At edge of grid? Add more!
+    if ((rowi+1 == [_table numberOfRows])
+        && (textMovement == NSReturnTextMovement  || textMovement == NSDownTextMovement)) {
+        [self addCellsIfNeededAtColumn:coli row:rowi+1];
+        [_table reloadData];
+    }
+    if ((coli+1 == [_table numberOfColumns])
+        && (textMovement == NSTabTextMovement  || textMovement == NSRightTextMovement)) {
+        [self addCellsIfNeededAtColumn:coli+1 row:rowi];
+        [_table reloadData];
+    }
+}
+
+- (void) addCellsIfNeededAtColumn:(NSInteger)col row:(NSInteger) row {
+    // Extend parsed array as needed to contain new cells
+    while(row >= [_parsedCSVArray count]){
         NSMutableArray *newrow = [[NSMutableArray alloc] init];
-        for(int i=0; i<coli; i++){
+        for(int i=0; i<col; i++){
             [newrow addObject:@""];
         }
         [_parsedCSVArray addObject:newrow];
     }
-    while(coli >= [[_parsedCSVArray objectAtIndex:rowi] count]){
-        [[_parsedCSVArray objectAtIndex:rowi] addObject:@""];
+    while(col >= [[_parsedCSVArray objectAtIndex:row] count]){
+        [[_parsedCSVArray objectAtIndex:row] addObject:@""];
     }
-          
-    [[_parsedCSVArray objectAtIndex:rowi] replaceObjectAtIndex:coli withObject:[notification.object stringValue]];
-    [self updateChangeCount:NSChangeDone];
 }
+
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return self.parsedCSVArray.count;
@@ -136,6 +155,7 @@
         NSLog(@"Couldn't find a column matching that identifier. Aborting!");
         return nil;
     }
+    [tc.headerCell setStringValue:[[NSNumber numberWithInteger:colidx+1] stringValue]];
     
     while (rowarr.count > [tv numberOfColumns]){
 //        NSLog(@"%ld columns in view, %lu fields in row %ld. Adding a column.", (long)[tv numberOfColumns], (unsigned long)[rowarr count], (long)row);
@@ -154,12 +174,15 @@
         cell.delegate = (id)self; //(id) to suppress protocol mismatch messages. Hacky!
     }
     
-    if ((colidx) < [rowarr count]){ // is this check necessary?
-//        NSLog(@"row %ld col %ld equals %@", (long)row, (long)colidx, rowarr[colidx]);
-        cell.stringValue = rowarr[colidx];
-    }
     [cell setNeedsDisplay:YES];
     return cell;    
+}
+
+- (id) tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tc row:(NSInteger)row {
+    NSArray *rowarr = [_parsedCSVArray objectAtIndex:row];
+    NSInteger colidx = [tv columnWithIdentifier:[tc identifier]];
+    [self addCellsIfNeededAtColumn:colidx row:row];
+    return rowarr[colidx];
 }
 
 
